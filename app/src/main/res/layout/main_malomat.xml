@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="false"
+    android:id="@+id/fg">
+
+    <LinearLayout
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="25dp"
+        android:paddingLeft="24dp"
+        android:paddingBottom="25dp"
+        android:paddingRight="24dp">
+
+        <ImageView android:src="@drawable/malomat"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="٭یہاں سے معلومات دیکھے"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+
+        <Button
+            android:layout_width="128dp"
+            android:textSize="25sp"
+            android:layout_height="128dp"
+            android:layout_weight="50"
+        android:text="ہاری معلومات"
+        android:id="@+id/btn_viewhari"
+         />
+
+    <Button
+        android:layout_width="128dp"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:layout_weight="50"
+        android:text="فصل معلومات"
+        android:id="@+id/btn_viewfasl"
+         />
+
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:layout_width="128dp"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:layout_weight="50"
+        android:text="زمین معلومات"
+        android:id="@+id/btn_viewland"
+         />
+
+    <Button
+        android:layout_width="128dp"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:layout_weight="50"
+        android:text="کھاد معلومات"
+        android:id="@+id/btn_viewfertilzier"
+         />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="128dp"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:layout_weight="50"
+        android:text="بیج معلومات"
+        android:id="@+id/btn_viewseed"
+         />
+
+    <Button
+        android:layout_width="128dp"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:layout_weight="50"
+        android:text="مشین معلومات"
+        android:id="@+id/btn_viewmachine"
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="128dp"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:layout_weight="50"
+
+        android:text="سروے معلومات"
+        android:id="@+id/btn_viewservey"
+         />
+
+    <Button
+        android:layout_width="128dp"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:layout_weight="50"
+        android:text="قرض معلومات"
+        android:id="@+id/btn_viewqarz"
+         />
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:text="پیچھے جانے کے لیے"
+            android:id="@+id/back"
+
+
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>

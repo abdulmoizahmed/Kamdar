@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="false"
+    android:id="@+id/fg">
+
+    <LinearLayout
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="25dp"
+        android:paddingLeft="24dp"
+        android:paddingBottom="25dp"
+        android:paddingRight="24dp">
+
+        <ImageView android:src="@drawable/roznamcha"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="٭یہ روزنامچہ اسکرین ہے"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+
+
+        <Button
+            android:layout_width="128dp"
+            android:layout_weight="50"
+            android:textSize="25sp"
+            android:layout_height="128dp"
+            android:text=""
+        android:id="@+id/btn_water"
+         />
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:text=""
+        android:id="@+id/btn_fertilizer"
+         />
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:text=""
+        android:id="@+id/btn_seed"
+         />
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:id="@+id/btn_Machine"
+         />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:text=""
+        android:id="@+id/btn_tax"
+         />
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:text=""
+        android:id="@+id/btn_servey"
+         />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+
+    <android.support.v7.widget.AppCompatButton
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:text=""
+            android:textSize="25sp"
+            android:layout_weight="100"
+            android:id="@+id/btn_newqarz"
+            />
+
+</LinearLayout>
+
+
+<Button
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_marginTop="20dp"
+android:text="پیچھے جانے کے لیے"
+android:id="@+id/back"
+
+
+    />
+
+    </LinearLayout>
+
+
+</ScrollView>

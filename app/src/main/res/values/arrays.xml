@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="contype">
+    <item>@string/contacttype</item>
+    <item>@string/contracttype</item>
+    </string-array>>
+
+    <string-array name="language">
+        <item>@string/urdu</item>
+        <item>@string/sindhi</item>
+
+    </string-array>>
+
+    <string-array name="haari">
+        <item>@string/hari1</item>
+        <item>@string/hari2</item>
+        <item>@string/hari3</item>
+    </string-array>>
+
+
+    <array name="zameenno">
+        <item>@string/hari1</item>
+        <item>@integer/land1</item>
+        <item>@integer/land2</item>
+        <item>@integer/land3</item>
+
+    </array>>
+
+    <string-array name="fasl">
+        <item>@string/hari1</item>
+        <item>@string/fasl1</item>
+        <item>@string/fasl2</item>
+        <item>@string/fasl3</item>
+    </string-array>>
+
+    <string-array name="tax">
+        <item>@string/hari1</item>
+        <item>@string/tax</item>
+        <item>@string/tax1</item>
+    </string-array>>
+
+
+    <string-array name="company">
+        <item>@string/hari1</item>
+        <item>@string/company</item>
+        <item>@string/company1</item>
+    </string-array>>
+
+
+    <string-array name="machine">
+        <item>@string/hari1</item>
+        <item>@string/machine</item>
+        <item>@string/machine2</item>
+    </string-array>>
+
+    <string-array name="machineOwnership">
+        <item>@string/contacttype</item>
+        <item>@string/contracttype</item>
+    </string-array>>
+
+
+
+    <string-array name="urdu_mainMenu">
+        <item>اندراج</item>
+        <item>رروزنامچہ</item>
+        <item>رپورٹ</item>
+        <item>معلومات</item>
+        <item>تخفیف</item>
+        <item>حزف</item>
+        <item>شیڈیول</item>
+
+    </string-array>>
+
+
+    <string-array name="sindhi_mainMenu">
+        <item> نئون اندراج</item>
+        <item>روزنامچه</item>
+        <item>رپورٽ</item>
+        <item>ڄاڻ</item>
+        <item>بدلائڻ</item>
+        <item> مِٽائڻ</item>
+        <item>شیڈیول</item>
+
+    </string-array>>
+
+
+    <string-array name="urdu_input">
+        <item>زمین اندراج</item>
+        <item>مشین اندراج</item>
+        <item>بیج اندراج</item>
+        <item>دوائی اندراج</item>
+        <item>کھاد اندراج</item>
+        <item>ہاری اندراج</item>
+        <item>ٖفصل اندراج</item>
+
+
+    </string-array>>
+    <string-array name="sindhi_input">
+        <item>زمين ڏيڻ</item>
+        <item>مشين ڏيڻ</item>
+        <item>ٻج ڏيڻ</item>
+        <item>اوشد ڏيڻ</item>
+        <item>ڪهاد ڏيڻ</item>
+        <item>ھاري ڏيڻ</item>
+        <item> پوکڻ ڏيڻ</item>
+
+
+    </string-array>>
+
+
+    <string-array name="urdu_roznamcha">
+
+        <item>پانی</item>
+        <item>کھاد</item>
+        <item>بیج</item>
+        <item>مشین بھاڑہ</item>
+        <item>اشر ٹیکس</item>
+        <item>سروے</item>
+        <item>قرض اندراج</item>
+    </string-array>>
+
+    <string-array name="sindhi_roznamcha">
+        <item>پاڻي</item>
+        <item>ڪهاد</item>
+        <item>ٻج</item>
+        <item>مشين مسواڙ</item>
+        <item>ڍل</item>
+        <item>سروے</item>
+        <item>اُڌار ڏيڻ</item>
+    </string-array>>
+
+
+    <string-array name="urdu_newland">
+
+        <item>زمین نمبر</item>
+        <item>زمین ملکیت</item>
+        <item>رقبہ زمین</item>
+        <item>زمین کی جگہ</item>
+    </string-array>>
+
+    <string-array name="sindhi_newland">
+
+        <item>زمين جو نمبر</item>
+        <item>زمين مالڪ</item>
+        <item>زمين پکيڙ </item>
+        <item>زمين جاءِ</item>
+    </string-array>>
+
+    <string-array name="urdu_inputfasal">
+    <item>فصل کا نام</item>
+    <item>موسم</item>
+    <item>سال</item>
+    </string-array>>
+
+    <string-array name="sindhi_inputfasal">
+        <item> پوکڻ نالو</item>
+        <item>مند</item>
+        <item>سن</item>
+    </string-array>>
+
+    <string-array name="urdu_inputfertilizer">
+        <item>نمبر</item>
+        <item>کھاد نام</item>
+        <item>کمپنی کا نام</item>
+        <item>مقدار</item>
+        <item>اخراجات</item>
+        <item>تاریخ</item>
+    </string-array>>
+
+    <string-array name="sindhi_inputfertilizer">
+        <item>نمبر</item>
+        <item>ڪهاد جو نالو</item>
+        <item>ڪمپني جو نالو</item>
+        <item>مقدار</item>
+        <item>خرچڻ</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+    <string-array name="urdu_inputseed">
+        <item>نمبر</item>
+        <item>ببیج کا نام</item>
+        <item>کمپنی کا نام</item>
+        <item>مقدار</item>
+        <item>اخراجات</item>
+        <item>تاریخ</item>
+    </string-array>>
+
+
+    <string-array name="sindhi_inputseed">
+        <item>نمبر</item>
+         <item>ٻج جو نالو</item>
+        <item>ڪمپني جو نالو</item>
+        <item>مقدار</item>
+        <item>خرچڻ</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+
+    <string-array name="urdu_inputHari">
+        <item> ہاری کا نام</item>
+        <item>زمین نمبر</item>
+        <item>فصل</item>
+        <item>تاریخ</item>
+        <item>ہاری ایڈریس</item>
+        <item>ہاری رابطہ نمبر</item>
+        <item>    ہاری اجرت</item>
+        <item>شرائط</item>
+        <item>سی-ای-این-سی</item>
+        <item>تجربہ</item>
+    </string-array>>
+
+    <string-array name="sindhi_inputHari">
+        <item>ھاري جو نالو</item>
+        <item>زمین نمبر</item>
+        <item> پوکڻ</item>
+        <item>تاريخ وجھڻ</item>
+        <item>ھاري ایڈریس</item>
+        <item>ھاري اَٽڪڻ نمبر</item>
+        <item>    ہاری اجرت</item>
+        <item>شرائط</item>
+        <item>سی-ای-این-سی</item>
+        <item>تجربو</item>
+    </string-array>>
+
+    <string-array name="urdu_inputmachine">
+       <item>ماڈل ںمبر</item>
+       <item>مشین کا نام</item>
+       <item>مشین کمپنی کا نام </item>
+       <item>منتخب کریں</item>
+       <item>اخراجات</item>
+       <item>تاریخ</item>
+    </string-array>>
+
+
+    <string-array name="sindhi_inputmachine">
+        <item>ماڈل ںمبر</item>
+        <item> مشين جو نالو</item>
+        <item>ڪمپني جو نالو</item>
+        <item>  منتخب ڪريو</item>
+        <item>خرچڻ</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+
+    <string-array name="urdu_rozkhad">
+       <item>زمین نمبر</item>
+       <item>فصل کا نام</item>
+       <item>کھاد کمپنی</item>
+       <item>استعمال بوریوں کی مقدار</item>
+       <item>تاریخ</item>
+    </string-array>>
+
+
+    <string-array name="sindhi_rozkhad">
+        <item>زمین نمبر</item>
+        <item> پوکڻ نالو</item>
+        <item>ڪهاد ڪمپني</item>
+        <item>استعمال بوريون جو مقدار</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+
+    <string-array name="urdu_rozmachine">
+        <item>مشین نام</item>
+        <item>مشین کمپنی</item>
+        <item>زمین نمپر</item>
+        <item>ہاری کا نام</item>
+        <item>تاریخ</item>
+        <item>خرچہ</item>
+    </string-array>>
+
+    <string-array name="sindhi_rozmachine">
+        <item>مشين جو نالو</item>
+        <item>مشين ڪمپني</item>
+        <item>زمین نمپر</item>
+        <item>ھاري جو نالو</item>
+        <item>تاريخ وجھڻ</item>
+        <item>خرچڻ</item>
+    </string-array>>
+
+    <string-array name="urdu_rozpani">
+    <item>   زمین نمبر</item>
+    <item>فصل کا نام</item>
+    <item>پانی کا دورانیہ</item>
+    <item>تاریخ</item>
+    </string-array>>
+
+    <string-array name="sindhi_rozpani">
+        <item>   زمین نمبر</item>
+        <item> پوکڻ نالو</item>
+        <item>پاڻي جو معياد</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+    <string-array name="urdu_rozseed">
+    <item>زمین نمبر</item>
+    <item>فصل کا نام</item>
+    <item>بیج کمپنی</item>
+    <item>خرچہ</item>
+    <item>بوریاں</item>
+    <item>تاریخ</item>
+
+    </string-array>>
+
+    <string-array name="sindhi_rozseed">
+        <item>زمین نمبر</item>
+        <item> پوکڻ نالو</item>
+        <item>ڪمپني جو نالو</item>
+        <item>خرچڻ</item>
+        <item>بوريون</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+
+    <string-array name="urdu_rozsurvey">
+        <item>زمین نمبر</item>
+        <item>اخراجات</item>
+        <item>پی ایچ ویلیو</item>
+        <item>تاریخ</item>
+    </string-array>>
+
+    <string-array name="sindhi_rozsurvey">
+        <item>زمین نمبر</item>
+        <item>خرچڻ</item>
+        <item>پی ایچ ویلیو</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+    <string-array name="urdu_roztax">
+        <item> قسم</item>
+        <item>انوائس</item>
+        <item>کمپنی</item>
+        <item>زمین نمبر</item>
+        <item>رقم</item>
+
+    </string-array>>
+
+    <string-array name="sindhi_roztax">
+        <item> قسم</item>
+        <item>انوائس</item>
+        <item>ڪمپني</item>
+        <item>زمین نمبر</item>
+        <item>رقم</item>
+    </string-array>>
+
+    <string-array name="urdu_rozqarz">
+      <item>ہاری کا نام</item>
+      <item>زمین نمبر</item>
+      <item>قرض کی رقم</item>
+      <item>تاریخ</item>
+    </string-array>>
+
+    <string-array name="sindhi_rozqarz">
+        <item>ھاري جو نالو</item>
+        <item>زمین نمبر</item>
+        <item>قرض جو رقم</item>
+        <item>تاريخ وجھڻ</item>
+    </string-array>>
+
+</resources>

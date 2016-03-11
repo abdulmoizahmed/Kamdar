@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Kamdar</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="langtitle">زبان</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="contacttype">  چار  آنہ</string>
+    <string name="contracttype">  آتھ آنہ </string>
+    <string name="urdu">اردو</string>
+    <string name="sindhi">سندھی</string>
+    <string name="english">English</string>
+    <string name="hari1">سیلیکٹ کریں</string>
+    <string name="hari2">گگل خان</string>
+    <string name="hari3">ولید کرامد</string>
+    <integer name="land1">234</integer>
+    <integer name="land2">125</integer>
+    <integer name="land3">12</integer>
+    <string name="fasl2">کپاس</string>
+    <string name="fasl1">گندم</string>
+    <string name="fasl3">گنا</string>
+    <string name="tax">ٹیکس</string>
+    <string name="tax1">اشر</string>
+    <string name="company">سونا یوریا کمپنی</string>
+    <string name="company1">چاند کمپنی</string>
+    <string name="machine">کیٹر پیلر</string>
+    <string name="machine2">ٹویوٹا</string>
+
+
+
+</resources>

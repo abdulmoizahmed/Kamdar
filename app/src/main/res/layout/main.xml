@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="false"
+    android:id="@+id/fg">
+
+    <LinearLayout
+        android:orientation="vertical"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="25dp"
+        android:paddingLeft="24dp"
+        android:paddingBottom="25dp"
+        android:paddingRight="24dp"
+        android:weightSum="1">
+
+    <ImageView android:src="@drawable/logo1"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="٭یہ مین اسکرین ہے"
+            android:id="@+id/textView60"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+
+
+
+
+        <Button
+            android:layout_width="128dp"
+            android:layout_weight="100"
+            android:textSize="25sp"
+            android:layout_height="128dp"
+
+            android:id="@+id/btn_newinput"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:id="@+id/btn_report"
+
+         />
+
+        <android.support.v7.widget.AppCompatButton
+
+            android:layout_width="128dp"
+            android:layout_weight="50"
+            android:textSize="25sp"
+            android:layout_height="128dp"
+            android:id="@+id/btn_roznamcha"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+
+            android:layout_width="128dp"
+            android:layout_weight="50"
+            android:textSize="25sp"
+            android:layout_height="128dp"
+            android:id="@+id/btn_info"
+            />
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:id="@+id/btn_edit"
+         />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:layout_width="128dp"
+        android:layout_weight="50"
+        android:textSize="25sp"
+        android:layout_height="128dp"
+        android:id="@+id/btn_delete"
+         />
+        <Button
+            android:layout_width="128dp"
+            android:layout_weight="50"
+            android:textSize="25sp"
+            android:layout_height="128dp"
+            android:id="@+id/btn_schedule" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+    </ScrollView>

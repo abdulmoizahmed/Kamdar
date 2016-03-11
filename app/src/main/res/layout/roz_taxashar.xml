@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:textSize="18sp"
+
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:weightSum="1">
+
+        <ImageView android:src="@drawable/logo1"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <TextView
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView23"
+         />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner5"
+        android:entries="@array/tax"
+        android:layout_below="@+id/textView23"
+        android:layout_alignRight="@+id/textView23"
+        android:layout_alignEnd="@+id/textView23"
+        android:spinnerMode="dropdown"
+        android:focusable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView24"
+        android:layout_below="@+id/spinner5"
+        android:layout_alignRight="@+id/spinner5"
+        android:layout_alignEnd="@+id/spinner5" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText19"
+        android:layout_below="@+id/textView24"
+        android:layout_alignRight="@+id/textView24"
+        android:layout_alignEnd="@+id/textView24" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/txt_tax_amount"
+            android:layout_below="@+id/spinner5"
+            android:layout_alignRight="@+id/spinner5"
+            android:layout_alignEnd="@+id/spinner5" />
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/taxComp"
+            android:layout_gravity="right" />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView25"
+        android:layout_below="@+id/editText19"
+        android:layout_alignRight="@+id/editText19"
+        android:layout_alignEnd="@+id/editText19" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner6"
+        android:layout_below="@+id/textView25"
+        android:layout_alignRight="@+id/textView25"
+        android:layout_alignEnd="@+id/textView25"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView26"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/spinner6"
+        android:layout_alignEnd="@+id/spinner6" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText20"
+        android:layout_below="@+id/textView26"
+        android:layout_alignRight="@+id/textView26"
+        android:layout_alignEnd="@+id/textView26" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_weight="50"
+                android:layout_height="wrap_content"
+                android:text="مزید اضافہ"
+                android:id="@+id/refresh"
+                />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_weight="50"
+                android:layout_height="wrap_content"
+                android:text="جمع کردو"
+                android:id="@+id/btn_submit"
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <ImageView android:src="@drawable/logo1"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/ferNum"
+            android:layout_gravity="right"
+            android:text="" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/ferNumb"
+            android:layout_gravity="right" />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView50"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+       />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText36"
+        android:layout_below="@+id/textView50"
+        android:layout_alignRight="@+id/textView50"
+        android:layout_alignEnd="@+id/textView50" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView51"
+        android:layout_below="@+id/editText36"
+        android:layout_alignRight="@+id/editText36"
+        android:layout_alignEnd="@+id/editText36" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText37"
+        android:layout_below="@+id/textView51"
+        android:layout_alignRight="@+id/textView51"
+        android:layout_alignEnd="@+id/textView51" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView52"
+        android:layout_below="@+id/editText37"
+        android:layout_alignRight="@+id/editText37"
+        android:layout_alignEnd="@+id/editText37" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText38"
+        android:layout_below="@+id/textView52"
+        android:layout_alignRight="@+id/textView52"
+        android:layout_alignEnd="@+id/textView52" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView53"
+        android:layout_below="@+id/editText38"
+        android:layout_alignRight="@+id/editText38"
+        android:layout_alignEnd="@+id/editText38" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText39"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/textView53"
+        android:layout_alignEnd="@+id/textView53" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textView54"
+        android:layout_below="@+id/editText39"
+        android:layout_alignRight="@+id/editText39"
+        android:layout_alignEnd="@+id/editText39" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText40"
+        android:layout_below="@+id/textView54"
+        android:layout_alignRight="@+id/textView54"
+        android:layout_alignEnd="@+id/textView54" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_weight="50"
+                android:layout_height="wrap_content"
+                android:text="مزید اضافہ"
+                android:id="@+id/refresh"
+                />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_weight="50"
+                android:layout_height="wrap_content"
+                android:text="جمع کردو"
+                android:id="@+id/btn_submit"
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.moizahmed.test1.Screens" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme.Dark" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainMenu"
+
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity
+            android:name=".Roznamcha"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.moizahmed.test1.Roznamcha" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NewInput"
+            android:theme="@style/AppTheme.Dark"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.moizahmed.test1.NewInput" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Malomat"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.moizahmed.test1.Malomat" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Edit"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.moizahmed.test1.Edit" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Delete"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.moizahmed.test1.Delete" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".Report"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.example.moizahmed.test1.Report" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".new_haari"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_haari" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".new_fasl"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_fasl" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".new_land"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_land" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".new_dawai"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_dawai" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".new_khad"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_khad" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".new_machine"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_machine" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".new_qarz"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_qarz" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".new_seed"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="new_seed" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".roz_khad"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="roz_khad" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".roz_seed"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="roz_seed" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".roz_machine"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="roz_machine" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".roz_pani"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="roz_pani" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".roz_servey"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="roz_servey" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".roz_tax"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="roz_tax" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
+
+
+
+
+    </application>
+
+</manifest>
