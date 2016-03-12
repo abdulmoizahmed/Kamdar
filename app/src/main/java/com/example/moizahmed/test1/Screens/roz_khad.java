@@ -96,14 +96,14 @@ public class roz_khad extends Activity {
 
     private void setKhadObject() {
 
-        ModelKhad modelKhad = new ModelKhad();
-        modelKhad.setID(va.getText().toString());
-        modelKhad.setName(v1.getText().toString());
-        modelKhad.setCompany(v2.getText().toString());
-        modelKhad.setQuantity(v3.getText().toString());
-        modelKhad.setExpense(v4.getText().toString());
-        modelKhad.setDate(v5.getText().toString());
-        modelKhad.saveObject(modelKhad);
+//        ModelKhad modelKhad = new ModelKhad();
+//        modelKhad.setID(va.getText().toString());
+//        modelKhad.setName(v1.getText().toString());
+//        modelKhad.setCompany(v2.getText().toString());
+//        modelKhad.setQuantity(v3.getText().toString());
+//        modelKhad.setExpense(v4.getText().toString());
+//        modelKhad.setDate(v5.getText().toString());
+//        modelKhad.saveObject(modelKhad);
     }
 
 

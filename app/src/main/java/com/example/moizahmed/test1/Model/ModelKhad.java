@@ -14,10 +14,7 @@ public class ModelKhad {
     String expense;
     String date;
 
-    public void setModelKhad(ModelKhad modelKhad)
-    {
-
-    }
+    public void setModelKhad(){}
 
 
     public String getName() {
@@ -69,8 +66,13 @@ public class ModelKhad {
     }
 
 
-    public void saveObject(ModelKhad modelKhad) {
-        this.modelKhad = modelKhad;
-        dbObject.insertKhadToDb(modelKhad);
+    public void saveObject() {
+    //    dbObject.insertKhadToDb();
     }
+
+    public ModelKhad getModelKhad()
+    {
+        return  modelKhad;
+    }
+
 }
