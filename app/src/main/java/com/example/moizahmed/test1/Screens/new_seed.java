@@ -11,115 +11,128 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Model.Language;
+import com.example.moizahmed.test1.Model.ModelSeed;
+
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
 public class new_seed extends Activity {
-    String[] labels;
-    int lang;
 
-    String name;          // Umair Younas DB Creation And integration.
-    String company;
-    String ID;
-    String Quantity;
-    String Expense;
-    String Date;
-
-    //SQLiteDatabase db;
-    Button submit;
+    private String[] labels;
+    private TextView number;
+    private TextView owner;
+    private TextView dimension;
+    private TextView place ;
+    private TextView expense1;
+    private TextView date1;
+    private EditText va;
+    private EditText v1;
+    private EditText v2;
+    private EditText v3;
+    private EditText v4;
+    private EditText v5;
+    private Button submit;
+    private Button refresh;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_newseed);
-        Bundle extras = getIntent().getExtras();
-        lang = extras.getInt("language_id");
         setLanguage();
+        initUI();
+        setLabels();
+        startListeners();
+    }
 
-
-        TextView number= (TextView)findViewById(R.id.textView15);
+    private void setLabels() {
         number.setText(labels[0]);
-        TextView owner = (TextView) findViewById(R.id.textView61);
         owner.setText(labels[1]);
-        TextView dimension = (TextView) findViewById(R.id.textView46);
         dimension.setText(labels[2]);
-        TextView place = (TextView) findViewById(R.id.textView47);
         place.setText(labels[3]);
-        TextView expense1 = (TextView) findViewById(R.id.textView48);
         expense1.setText(labels[4]);
-        TextView date1 = (TextView) findViewById(R.id.textView49);
         date1.setText(labels[5]);
-
-
-
-       // db=openOrCreateDatabase("Khaatah", Context.MODE_PRIVATE, null); // open db...
-
-        final EditText va= (EditText) findViewById(R.id.seedID);
-        final EditText v1= (EditText) findViewById(R.id.editText31);
-        final EditText v2= (EditText) findViewById(R.id.editText32);
-        final EditText v3= (EditText) findViewById(R.id.editText33);
-        final EditText v4= (EditText) findViewById(R.id.editText34);
-        final EditText v5= (EditText) findViewById(R.id.editText35);
-        submit = (Button) findViewById(R.id.btn_submit);
-
-
-
-
-
-
-
-
-        Button refresh,submit;
-        refresh =(Button) findViewById(R.id.refresh);
-        refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent menu = new Intent("new_seed");
-                menu.putExtra("language_id",lang);
-                startActivity(menu);
-                finish();
-
-
-            }
-        });
-
-
-        submit=(Button) findViewById(R.id.btn_submit);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                ID = va.getText().toString();
-
-                name = v1.getText().toString();     //getting values from the form into db...
-                company = v2.getText().toString();
-                Quantity = v3.getText().toString();
-                Expense = v4.getText().toString();
-                Date = v4.getText().toString();
-
-
-         //       db.execSQL("INSERT INTO Seeds VALUES('" + ID.toString() + "','" + name.toString() + "','" + company.toString() + "','" + Quantity.toString() + "','" + Expense.toString() + "','" + Date.toString() + "');");
-
-
-
-                AlertDialog alertDialog = new AlertDialog.Builder(new_seed.this).create();
-                alertDialog.setMessage("شکریہ! اندراج ہوگیا ہے۔");
-                alertDialog.setIcon(R.drawable.logo1);
-                alertDialog.show();
-            }
-        });
 
     }
 
+    private void initUI() {
+
+         number= (TextView)findViewById(R.id.textView15);
+         owner = (TextView) findViewById(R.id.textView61);
+         dimension = (TextView) findViewById(R.id.textView46);
+         place = (TextView) findViewById(R.id.textView47);
+         expense1 = (TextView) findViewById(R.id.textView48);
+         date1 = (TextView) findViewById(R.id.textView49);
+         va= (EditText) findViewById(R.id.seedID);
+         v1= (EditText) findViewById(R.id.editText31);
+         v2= (EditText) findViewById(R.id.editText32);
+         v3= (EditText) findViewById(R.id.editText33);
+         v4= (EditText) findViewById(R.id.editText34);
+         v5= (EditText) findViewById(R.id.editText35);
+        refresh =(Button) findViewById(R.id.refresh);
+        submit=(Button) findViewById(R.id.btn_submit);
+
+    }
+
+    private void setFaslObject() {
+        ModelSeed modelSeed = new ModelSeed();
+        modelSeed.setID(va.getText().toString());
+        modelSeed.setName(v1.getText().toString());
+        modelSeed.setCompany(v2.getText().toString());
+        modelSeed.setQuantity(v3.getText().toString());
+        modelSeed.setExpense(v4.getText().toString());
+        modelSeed.setDate(v5.getText().toString());
+        DataBaseStarter dbObject = new DataBaseStarter(getApplicationContext());
+        dbObject.insertSeedToDb(modelSeed);
+
+    }
+
+    private void startListeners() {
+        submit.setOnClickListener(new KhadButtonListener());
+        refresh.setOnClickListener(new KhadButtonListener());
+
+
+    }
+
+    private void showDialogMessage() {
+        AlertDialog alertDialog = new AlertDialog.Builder(new_seed.this).create();
+        alertDialog.setMessage("شکریہ! اندراج ہوگیا ہے۔");
+        alertDialog.setIcon(R.drawable.logo1);
+        alertDialog.show();
+    }
+
+
+
     public void setLanguage() {
 
-
-        if (lang == 0) {
+        if (Language.getInstance().getLanguageId() == 0) {
             labels = getResources().getStringArray(R.array.urdu_inputseed);
         } else {
             labels = getResources().getStringArray(R.array.sindhi_inputseed);
         }
 
+
     }
+    private class KhadButtonListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            switch (v.getId())
+            {
+                case R.id.btn_submit:
+                    setFaslObject();
+                    showDialogMessage();
+                    break;
+                case R.id.refresh:
+                    Intent menu = new Intent("new_seed");
+                    startActivity(menu);
+                    finish();
+                    break;
+
+            }
+        }
+    }
+
+
 }

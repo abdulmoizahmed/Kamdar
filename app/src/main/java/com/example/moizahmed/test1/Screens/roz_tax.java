@@ -126,8 +126,6 @@ public class roz_tax extends Activity {
         });
     }
     public void setLanguage() {
-
-
         if (lang == 0) {
             labels = getResources().getStringArray(R.array.urdu_roztax);
         } else {

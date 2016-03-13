@@ -22,6 +22,8 @@ public class DataBaseStarter extends SQLiteOpenHelper {
     private String CREATE_CROP = "CREATE TABLE IF NOT EXISTS Crop(cropName TEXT PRIMARY KEY,season VARCHAR,year VARCHAR);";
     private String CREATE_SEED = "CREATE TABLE IF NOT EXISTS Seeds(ID VARCHAR PRIMARY KEY,name VARCHAR,company VARCHAR,quantity VARCHAR,expense VARCHAR,date VARCHAR);";
     private String CREATE_FERTILIZER = "CREATE TABLE IF NOT EXISTS Fertilizer(ID VARCHAR PRIMARY KEY,name VARCHAR ,company VARCHAR,quantity VARCHAR,expense VARCHAR,date VARCHAR);";
+
+    //constructor
     public DataBaseStarter(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -30,20 +32,16 @@ public class DataBaseStarter extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+//Creation of DataBase
         db.execSQL(CREATE_LAND);
-        // defining Crop Table....
         db.execSQL(CREATE_CROP);
-        // defining Seeds Table....
         db.execSQL(CREATE_SEED);
-        // defining Fertilizer Table....
         db.execSQL(CREATE_FERTILIZER);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //db.execSQL("INSERT INTO Fertilizer VALUES('" + ID.toString() + "','" + name.toString() + "','" + company.toString() + "','" + quantity.toString() + "','" + expense.toString() + "','" + date.toString() + "');");
-
 
     }
 
@@ -51,4 +49,25 @@ public class DataBaseStarter extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("INSERT INTO Fertilizer VALUES('" + modelKhad.getID().toString() + "','" + modelKhad.getName().toString() + "','" + modelKhad.getCompany().toString() + "','" + modelKhad.getQuantity().toString() + "','" + modelKhad.getExpense().toString() + "','" + modelKhad.getDate().toString() + "')");
     }
+
+
+    public void insertFaslToDb(ModelFasl modelFasl) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO Crop VALUES('" + modelFasl.getCropName().toString() + "','" + modelFasl.getSeason().toString() + "','" + modelFasl.getYear().toString() + "')");
+    }
+
+
+    public void insertSeedToDb(ModelSeed modelSeed) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO Seeds VALUES('" + modelSeed.getID().toString() + "','" + modelSeed.getName().toString() + "','" + modelSeed.getCompany().toString() + "','" + modelSeed.getQuantity().toString() + "','" + modelSeed.getExpense().toString() + "','" + modelSeed.getDate().toString() + "')");
+    }
+
+    public void insertLandToDb(ModelLand modelLand) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO Land VALUES('" + modelLand.getLandNumber().toString() + "','" + modelLand.getLandOwner().toString() + "','" + modelLand.getDimensions().toString() + "','" + modelLand.getLandLoc().toString() + "')");
+    }
+
+
+
+
 }

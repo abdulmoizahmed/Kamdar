@@ -19,9 +19,7 @@ import com.example.moizahmed.test1.Model.ModelKhad;
  * Created by Moiz Ahmed on 11/16/2015.
  */
 public class new_khad extends Activity {
-    String[] labels;
-    int lang;
-
+    private String[] labels;
     private TextView number;
     private TextView owner;
     private TextView dimension ;
@@ -126,7 +124,6 @@ public class new_khad extends Activity {
                     break;
                 case R.id.refresh:
                     Intent menu = new Intent("new_khad");
-                    menu.putExtra("language_id", lang);
                     startActivity(menu);
                     finish();
                     break;
