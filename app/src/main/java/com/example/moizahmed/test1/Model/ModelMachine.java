@@ -1,21 +1,28 @@
 package com.example.moizahmed.test1.Model;
 
 /**
- * Created by Moiz Ahmed on 2/27/2016.
+ * Created by umair on 3/13/2016.
  */
-public class ModelKhad {
+public class ModelMachine {
 
-    ModelKhad modelKhad;
-    DataBaseStarter dbObject;
+
+    String modelNumber;
     String name;
     String company;
-    String ID;
+    String owner;
     String quantity;
     String expense;
     String date;
 
-    public void setModelKhad(){}
 
+
+    public String getModelNumber() {
+        return modelNumber;
+    }
+
+    public void setModelNumber(String modelNumber) {
+        this.modelNumber = modelNumber;
+    }
 
     public String getName() {
         return name;
@@ -33,12 +40,12 @@ public class ModelKhad {
         this.company = company;
     }
 
-    public String getID() {
-        return ID;
+    public String getOwner() {
+        return owner;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
     public String getQuantity() {
@@ -63,15 +70,6 @@ public class ModelKhad {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-
-    public void saveObject() {
-    //    dbObject.insertKhadToDb();
-    }
-    public ModelKhad getModelKhad()
-    {
-        return  modelKhad;
     }
 
 }
