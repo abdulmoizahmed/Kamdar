@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.moizahmed.test1.Model.Language;
+
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
@@ -21,8 +23,6 @@ public class roz_seed extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roz_seed);
-        Bundle extras = getIntent().getExtras();
-        lang = extras.getInt("language_id");
         setLanguage();
 
         TextView number= (TextView)findViewById(R.id.textView1);
@@ -69,7 +69,7 @@ public class roz_seed extends Activity {
     public void setLanguage() {
 
 
-        if (lang == 0) {
+        if (Language.getInstance().getLanguageId() == 0) {
             labels = getResources().getStringArray(R.array.urdu_rozseed);
         } else {
             labels = getResources().getStringArray(R.array.sindhi_rozseed);

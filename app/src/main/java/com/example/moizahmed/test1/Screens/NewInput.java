@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import com.example.moizahmed.test1.Model.Language;
 
-import butterknife.ButterKnife;
 
 
 /**

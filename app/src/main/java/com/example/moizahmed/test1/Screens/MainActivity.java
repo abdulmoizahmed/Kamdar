@@ -2,6 +2,7 @@ package com.example.moizahmed.test1.Screens;
 
 import android.content.Intent;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,12 +13,15 @@ import android.widget.Spinner;
 import com.example.moizahmed.test1.Model.DataBaseStarter;
 import com.example.moizahmed.test1.Model.Language;
 
+import belka.us.androidtoggleswitch.widgets.ToggleSwitch;
+
 public class MainActivity extends AppCompatActivity {
     private int lang;
     private Button wel;
 //    public Language mlanguage = new Language();
     private int spin_pos;
     private Spinner spin;
+    private ToggleSwitch toggleSwitch;
     public DataBaseStarter db;
 
     @Override
@@ -26,43 +30,47 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         db = new DataBaseStarter(getApplicationContext());
         UiInit();
+        setLayoutFont();
         BtnListener();
     }
 
 
     private void BtnListener() {
         wel.setOnClickListener(myLanguage);
+        toggleSwitch.setOnToggleSwitchChangeListener(setLanguage);
     }
 
     private void UiInit() {
         //Ui Initialization
         wel = (Button) findViewById(R.id.btn_welcome);
-
-    }
-
-    public void setLanguage()
-    {
-        spin = (Spinner)findViewById(R.id.langselect);
-        spin_pos = spin.getSelectedItemPosition();
-        Language.getInstance().setLanguageId(spin_pos);
+        toggleSwitch = (ToggleSwitch) findViewById(R.id.languageSelect);
 
     }
 
 
 
+    ToggleSwitch.OnToggleSwitchChangeListener setLanguage = new ToggleSwitch.OnToggleSwitchChangeListener() {
+        @Override
+        public void onToggleSwitchChangeListener(int position)
+        {
+            Language.getInstance().setLanguageId(position);
+        }
+    };
 
 
     Button.OnClickListener myLanguage = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            setLanguage();
-            Intent menu = new Intent(getApplicationContext(), com.example.moizahmed.test1.Screens.MainMenu.class);
-            menu.putExtra("language_id",lang);
+            Intent menu = new Intent(MainActivity.this,Main.class);
             startActivity(menu);
             finish();
         }
     };
 
+    public void setLayoutFont() {
+        Typeface tf = Typeface.createFromAsset(getAssets(),"fonts/nori.ttf");
+       wel.setTypeface(tf);
+    }
 
 }
 

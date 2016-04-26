@@ -1,4 +1,12 @@
 <resources>
+    <string name="appIntroKami">کامدار</string>
+    <string name="appIntroKamiDetail">اب کسانوں کو سمبھالنا اور آسان</string>
+    <string name="appIntroTitle1">روزنامچہ</string>
+    <string name="appIntroTitle1Detail">روز کے معملات درج کرسکتے ہیں</string>
+    <string name="appIntroReport">رپورٹ</string>
+    <string name="appIntroReportDetails">فصل کی کٹائی میں زمین سے متعلق رپورٹ حاصل کریں</string>
+
+
     <string name="app_name">Kamdar</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="langtitle">زبان</string>
@@ -24,7 +32,7 @@
     <string name="company1">چاند کمپنی</string>
     <string name="machine">کیٹر پیلر</string>
     <string name="machine2">ٹویوٹا</string>
-
+    <string name="languageText">٭اپنی من پسند زبان کو منتخب کریں</string>
 
 
 </resources>

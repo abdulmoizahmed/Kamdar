@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="fill_parent"
-
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg2"
     android:layout_height="fill_parent"
     android:fitsSystemWindows="true"
     android:fillViewport="false"
@@ -26,37 +26,50 @@
         android:layout_marginBottom="24dp"
         android:layout_gravity="center_horizontal" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/languageText"
+            android:textColor="#ffffff"
+            android:id="@+id/textView60"
+            android:layout_gravity="center_horizontal" />
 
-<LinearLayout
+<RelativeLayout
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="bottom"
+
     android:paddingTop="200dp"
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
-    android:orientation="vertical"
-
     android:weightSum="1">
 
+    <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+        android:id="@+id/languageSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
 
-    <Spinner
-        android:id="@+id/langselect"
-        android:layout_height="match_parent"
-        android:layout_width="fill_parent"
-        android:entries="@array/language"
-        android:layout_weight="0.10">
-    </Spinner>
+        custom:activeBgColor="@color/colorPrimaryDark"
+        custom:activeTextColor="@android:color/white"
+        custom:inactiveBgColor="#0000"
+        custom:textToggleLeft="@string/urdu"
+        custom:textToggleRight="@string/sindhi"/>
 
 
-    <Button
-        android:id="@+id/btn_welcome"
-        android:layout_width="match_parent"
-        android:layout_height="89dp"
-        android:text="خوش آمدید"
-        android:textColor="#ffffff" />
 
-</LinearLayout>
+
+</RelativeLayout>
+        <Button
+            android:id="@+id/btn_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_style"
+            android:text="خوش آمدید"
+            android:textColor="#ffffff" />
 
 </LinearLayout>
 </ScrollView>

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelKhad;
 
 /**
@@ -39,8 +40,6 @@ public class roz_khad extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roz_fertilizer);
-        Bundle extras = getIntent().getExtras();
-        lang = extras.getInt("language_id");
         setLanguage();
         initUI();
         setLabels();
@@ -127,7 +126,7 @@ public class roz_khad extends Activity {
     }
 
     public void setLanguage() {
-        if (lang == 0) {
+        if (Language.getInstance().getLanguageId()  == 0) {
             labels = getResources().getStringArray(R.array.urdu_rozkhad);
         } else {
             labels = getResources().getStringArray(R.array.sindhi_rozkhad);
