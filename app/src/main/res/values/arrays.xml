@@ -205,6 +205,7 @@
         <item>ہاری رابطہ نمبر</item>
         <item>    ہاری اجرت</item>
         <item>شرائط</item>
+        <item>مائدہ</item>
         <item>سی-ای-این-سی</item>
         <item>تجربہ</item>
     </string-array>>
@@ -243,19 +244,21 @@
 
 
     <string-array name="urdu_rozkhad">
-       <item>زمین نمبر</item>
-       <item>فصل کا نام</item>
-       <item>کھاد کمپنی</item>
-       <item>استعمال بوریوں کی مقدار</item>
-       <item>تاریخ</item>
+        <item>کھاد نمبر</item>
+        <item>زمین نمبر</item>
+        <item>کھاد کمپنی</item>
+        <item>استعمال بوریوں کی مقدار</item>
+        <item>اخراجات</item>
+        <item>تاریخ</item>
     </string-array>>
 
 
     <string-array name="sindhi_rozkhad">
+        <item>ڪهاد نمبر</item>
         <item>زمین نمبر</item>
-        <item> پوکڻ نالو</item>
         <item>ڪهاد ڪمپني</item>
         <item>استعمال بوريون جو مقدار</item>
+        <item>خرچڻ</item>
         <item>تاريخ وجھڻ</item>
     </string-array>>
 
@@ -313,6 +316,8 @@
 
 
     <string-array name="urdu_rozsurvey">
+        <item>سروے نمبر</item>
+        <item>کمپنی </item>
         <item>زمین نمبر</item>
         <item>اخراجات</item>
         <item>پی ایچ ویلیو</item>
@@ -320,6 +325,8 @@
     </string-array>>
 
     <string-array name="sindhi_rozsurvey">
+        <item>سروے نمبر</item>
+        <item> ڪمپني</item>
         <item>زمین نمبر</item>
         <item>خرچڻ</item>
         <item>پی ایچ ویلیو</item>

@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Adapters.GetAdapters;
+import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
-import com.example.moizahmed.test1.Model.ModelKhad;
+import com.example.moizahmed.test1.Model.ModelIssueFertilizer;
 
 /**
  * Created by Moiz Ahmed on 11/16/2015.
@@ -25,12 +28,13 @@ public class roz_khad extends Activity {
     private  TextView dimension;
     private TextView place;
     private  TextView expense1;
-    private EditText va;
-    private EditText v1;
-    private EditText v2;
-    private EditText v3;
-    private EditText v4;
-    private EditText v5;
+    private  TextView date1;
+    private Spinner khadID;
+    private Spinner landno;
+    private Spinner company;
+    private EditText quantity;
+    private EditText date;
+    private EditText expense;
  //   public ModelKhad modelKhad;
 
 
@@ -43,7 +47,7 @@ public class roz_khad extends Activity {
         setLanguage();
         initUI();
         setLabels();
-
+        setAdapters();
 
 
 
@@ -76,6 +80,15 @@ public class roz_khad extends Activity {
 
     }
 
+    private void setAdapters() {
+        GetAdapters adapters = new GetAdapters(getApplicationContext());
+        khadID.setAdapter(adapters.getKhadID());
+        landno.setAdapter(adapters.getLandArray());
+        company.setAdapter(adapters.getKhadCompany());
+    }
+
+
+
     private void setLabels() {
 
         number.setText(labels[0]);
@@ -83,6 +96,7 @@ public class roz_khad extends Activity {
         owner.setText(labels[1]);
         place.setText(labels[3]);
         expense1.setText(labels[4]);
+        date1.setText(labels[5]);
 
     }
 
@@ -94,33 +108,42 @@ public class roz_khad extends Activity {
     }
 
     private void setKhadObject() {
-
-//        ModelKhad modelKhad = new ModelKhad();
-//        modelKhad.setID(va.getText().toString());
-//        modelKhad.setName(v1.getText().toString());
-//        modelKhad.setCompany(v2.getText().toString());
-//        modelKhad.setQuantity(v3.getText().toString());
-//        modelKhad.setExpense(v4.getText().toString());
-//        modelKhad.setDate(v5.getText().toString());
-//        modelKhad.saveObject(modelKhad);
+        ModelIssueFertilizer modelIssueFertilizer = new ModelIssueFertilizer();
+        modelIssueFertilizer.setID(khadID.getSelectedItem().toString());
+        modelIssueFertilizer.setLandNumber(landno.getSelectedItem().toString());
+        modelIssueFertilizer.setCompany(company.getSelectedItem().toString());
+        modelIssueFertilizer.setQuantity(quantity.getText().toString());
+        modelIssueFertilizer.setExpense(expense.getText().toString());
+        modelIssueFertilizer.setDate(date.getText().toString());
+        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
+        dbObject.insertIssueFertilizerToDb(modelIssueFertilizer);
     }
 
 
 
 
     private void initUI() {
-        number= (TextView)findViewById(R.id.textView27);
-        owner = (TextView) findViewById(R.id.textView28);
-         dimension = (TextView) findViewById(R.id.textView29);
-         place = (TextView) findViewById(R.id.textView30);
-         expense1 = (TextView) findViewById(R.id.textView31);
-          va= (EditText) findViewById(R.id.ferNumb);
-          v1= (EditText) findViewById(R.id.editText36);
-          v2= (EditText) findViewById(R.id.editText37);
-          v3= (EditText) findViewById(R.id.editText38);
-          v4= (EditText) findViewById(R.id.editText39);
-          v5= (EditText) findViewById(R.id.editText40);
+        number= (TextView)findViewById(R.id.fertilizer_id);
+        owner = (TextView) findViewById(R.id.landNum);
+         dimension = (TextView) findViewById(R.id.company);
+         place = (TextView) findViewById(R.id.quantity);
+         expense1 = (TextView) findViewById(R.id.tv_fert_expense);
+         date1 = (TextView) findViewById(R.id.tv_fert_date);
 
+//        ID= (TextView)findViewById(R.id.fertilizer_id);
+//        landnumber= (TextView)findViewById(R.id.landNum);
+//        company = (TextView) findViewById(R.id.company);
+//        quantity = (TextView) findViewById(R.id.quantity);
+//        expense = (TextView) findViewById(R.id.tv_fert_expense);
+//        date = (TextView) findViewById(R.id.tv_fert_date);
+
+        khadID= (Spinner)findViewById(R.id.spin_ID);
+         landno= (Spinner)findViewById(R.id.spin_landNum);
+         company= (Spinner)findViewById(R.id.spin_company);
+         quantity= (EditText) findViewById(R.id.et_fert_quantity);
+         expense = (EditText) findViewById(R.id.et_fert_expense);
+         date= (EditText) findViewById(R.id.et_fert_date);
+        //
 
 
     }

@@ -23,16 +23,21 @@
             android:layout_gravity="center_horizontal" />
 
 
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="یہ کھاد روزنامچہ اسکرین  ہے "
+            android:id="@+id/tv_rozFert_head"
+            android:layout_gravity="center_horizontal" />
 
         <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text=""
             android:textSize="18sp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:id="@+id/textView27"
+            android:id="@+id/fertilizer_id"
         />
 
 
@@ -40,8 +45,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
 
-            android:id="@+id/spinner7"
-            />
+            android:id="@+id/spin_ID"
+            android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -49,15 +54,14 @@
         android:layout_marginBottom="24dp"
         android:textSize="18sp"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textView28"
+        android:id="@+id/landNum"
         />
 
     <Spinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner8"
-/>
+        android:id="@+id/spin_landNum"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_marginTop="24dp"
@@ -65,15 +69,14 @@
         android:textSize="18sp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textView29"
+        android:id="@+id/company"
        />
 
     <Spinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner9"
-         />
+        android:id="@+id/spin_company"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -81,8 +84,7 @@
         android:layout_marginBottom="24dp"
         android:textSize="18sp"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textView30"
+        android:id="@+id/quantity"
         />
 
     <EditText
@@ -90,7 +92,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText21"
+        android:id="@+id/et_fert_quantity"
        />
 
     <TextView
@@ -99,8 +101,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="24dp"
         android:textSize="18sp"
-        android:text=""
-        android:id="@+id/textView31"
+        android:id="@+id/tv_fert_expense"
         />
 
 
@@ -108,12 +109,28 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
+        android:inputType="number"
 
         android:ems="10"
-        android:id="@+id/editText22"
+        android:id="@+id/et_fert_expense"
        />
-    <LinearLayout
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:textSize="18sp"
+            android:id="@+id/tv_fert_date" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/et_fert_date" />
+
+        <LinearLayout
         android:orientation="horizontal"
         android:weightSum="100"
         android:layout_width="fill_parent"

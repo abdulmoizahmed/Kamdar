@@ -1,20 +1,23 @@
 package com.example.moizahmed.test1.Model;
 
+import android.content.Context;
+import android.database.Cursor;
+
 /**
  * Created by umair on 3/13/2016.
  */
 public class ModelLoan {
-    String CNIC;
+    String name;
     String landNumber;
     String amount;
     String Date;
 
-    public String getCNIC() {
-        return CNIC;
+    public String getName() {
+        return name;
     }
 
-    public void setCNIC(String CNIC) {
-        this.CNIC = CNIC;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLandNumber() {
@@ -38,6 +41,14 @@ public class ModelLoan {
 
     public void setDate(String date) {
         Date = date;
+    }
+
+
+    public Cursor getLoanDetail(Context context, String name)
+    {
+        DataBaseHelper db = new DataBaseHelper(context);
+        Cursor c = db.retrieveLoanDetails(name);;
+        return c;
     }
 
 }

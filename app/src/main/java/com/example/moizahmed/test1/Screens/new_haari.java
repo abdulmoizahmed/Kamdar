@@ -2,23 +2,19 @@ package com.example.moizahmed.test1.Screens;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.moizahmed.test1.Adapters.GetAdapters;
-import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelFarmer;
-import com.example.moizahmed.test1.Screens.R;
 
 /**
  * Created by Moiz Ahmed on 11/16/2015.
@@ -41,6 +37,7 @@ public class new_haari extends Activity {
     private  TextView number;
     private  TextView owner;
     private TextView dimension;
+    private TextView agreement;
     private Button submit;
     private Button refresh;
 
@@ -70,7 +67,7 @@ public class new_haari extends Activity {
     private void initAdapters() {
         GetAdapters adapter = new GetAdapters(this);
         v9.setAdapter(adapter.getLandArray());
-        v10.setAdapter(adapter.getFasalArray());
+        v10.setAdapter(adapter.getFasalArraySpinner());
     }
 
     private void startListener() {
@@ -87,8 +84,9 @@ public class new_haari extends Activity {
         v4.setHint(labels[5]);
         v5.setHint(labels[6]);
         v6.setHint(labels[7]);
-        v7.setHint(labels[8]);
-        v8.setHint(labels[9]);
+        agreement.setText(labels[8]);
+        v7.setHint(labels[9]);
+        v8.setHint(labels[10]);
 
     }
 
@@ -107,6 +105,7 @@ public class new_haari extends Activity {
          number= (TextView)findViewById(R.id.land_number);
          owner = (TextView) findViewById(R.id.fasal_number);
          dimension = (TextView) findViewById(R.id.date);
+         agreement = (TextView) findViewById(R.id.agreement);
 
          submit = (Button) findViewById(R.id.btn_submit);
          refresh =(Button) findViewById(R.id.refresh);
@@ -136,7 +135,7 @@ public class new_haari extends Activity {
         modelFarmer.setLandNumber(v9.getSelectedItem().toString());
         modelFarmer.setCropName(v10.getSelectedItem().toString());
         modelFarmer.setContract(v11.getSelectedItem().toString());
-        DataBaseStarter dbObject = new DataBaseStarter(getApplicationContext());
+        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertFarmerToDb(modelFarmer);
     }
 

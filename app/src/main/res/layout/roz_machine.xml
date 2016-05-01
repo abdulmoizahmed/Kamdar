@@ -25,6 +25,14 @@
             android:layout_gravity="center_horizontal" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="یہ مشین روزنامچہ اسکرین  ہے "
+            android:id="@+id/tv_rozMach_head"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
@@ -34,67 +42,67 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner10"
+        android:id="@+id/spin_rozMachine_no"
         android:entries="@array/machine"
         android:layout_below="@+id/textView32"
         android:layout_alignRight="@+id/textView32"
-        android:layout_alignEnd="@+id/textView32" />
+        android:layout_alignEnd="@+id/textView32"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/textView33"
-        android:layout_below="@+id/spinner10"
-        android:layout_alignRight="@+id/spinner10"
-        android:layout_alignEnd="@+id/spinner10" />
+        android:layout_below="@+id/spin_rozMachine_no"
+        android:layout_alignRight="@+id/spin_rozMachine_no"
+        android:layout_alignEnd="@+id/spin_rozMachine_no" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner11"
+        android:id="@+id/spin_rozMachine_land"
 
         android:layout_below="@+id/textView33"
         android:layout_alignRight="@+id/textView33"
-        android:layout_alignEnd="@+id/textView33" />
+        android:layout_alignEnd="@+id/textView33"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/textView34"
-        android:layout_below="@+id/spinner11"
-        android:layout_alignRight="@+id/spinner11"
-        android:layout_alignEnd="@+id/spinner11" />
+        android:layout_below="@+id/spin_rozMachine_land"
+        android:layout_alignRight="@+id/spin_rozMachine_land"
+        android:layout_alignEnd="@+id/spin_rozMachine_land" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:id="@+id/spinner12"
+        android:id="@+id/spin_rozMachine_crop"
         android:layout_below="@+id/textView34"
         android:layout_alignRight="@+id/textView34"
-        android:layout_alignEnd="@+id/textView34" />
+        android:layout_alignEnd="@+id/textView34"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/textView35"
-        android:layout_below="@+id/spinner12"
-        android:layout_alignRight="@+id/spinner12"
-        android:layout_alignEnd="@+id/spinner12" />
+        android:layout_below="@+id/spin_rozMachine_crop"
+        android:layout_alignRight="@+id/spin_rozMachine_crop"
+        android:layout_alignEnd="@+id/spin_rozMachine_crop" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner13"
+        <EditText
+            android:layout_width="212dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/et_rozMachine_duration" />
 
-        android:layout_below="@+id/textView35"
-        android:layout_alignRight="@+id/textView35"
-        android:layout_alignEnd="@+id/textView35" />
-
-    <TextView
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
@@ -106,7 +114,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="date"
+        android:inputType="number"
         android:ems="10"
         android:id="@+id/editText23"
         android:layout_below="@+id/textView36"
@@ -125,7 +133,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="date"
         android:ems="10"
         android:id="@+id/editText24"
         android:layout_below="@+id/textView37"

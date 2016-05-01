@@ -2,10 +2,7 @@ package com.example.moizahmed.test1.Screens;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +10,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelMachine;
-import com.example.moizahmed.test1.Screens.R;
 
 /**
  * Created by Moiz Ahmed on 11/16/2015.
@@ -43,7 +39,7 @@ public class new_machine extends Activity {
     private Button submit;
     private Button refresh;
     private EditText v1,v2,v3,v4,v5;
-    private Spinner TypeSpinner;
+    private EditText quantity;
 
 
 
@@ -67,8 +63,9 @@ public class new_machine extends Activity {
         modelMachine.setCompany(v3.getText().toString());
         modelMachine.setExpense(v4.getText().toString());
         modelMachine.setDate(v5.getText().toString());
-        modelMachine.setOwner(TypeSpinner.getSelectedItem().toString());
-        DataBaseStarter dbObject = new DataBaseStarter(getApplicationContext());
+        modelMachine.setQuantity(quantity.getText().toString());
+        modelMachine.setOwner("");
+        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertMachineToDb(modelMachine);
 
     }
@@ -85,7 +82,6 @@ public class new_machine extends Activity {
         place.setText(labels[3]);
         expense1.setText(labels[4]);
         date1.setText(labels[5]);
-
     }
 
     private void initUI() {
@@ -101,8 +97,8 @@ public class new_machine extends Activity {
          v3= (EditText) findViewById(R.id.editText16);
          v4= (EditText) findViewById(R.id.editText17);
          v5= (EditText) findViewById(R.id.editText18);
+         quantity= (EditText) findViewById(R.id.quantity);
 
-        TypeSpinner=(Spinner) findViewById(R.id.spinnerType);
 
 
         refresh =(Button) findViewById(R.id.refresh);

@@ -9,9 +9,11 @@
         android:supportsRtl="true"
         android:label="@string/app_name"
         tools:replace="android:theme"
-        android:theme="@style/AppTheme.Dark" >
+        android:theme="@style/AppTheme.Light" >
 
-        <activity android:name=".MyIntro">
+        <activity android:name=".MyIntro"
+
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +23,7 @@
 
         <activity
             android:name=".MainActivity"
+
             android:label="@string/app_name" >
         </activity>
 
@@ -32,23 +35,24 @@
 
         <activity
             android:name=".new_haari"
-            android:label="@string/app_name" >
+            android:label="@string/input_farmer"
+            >
         </activity>
 
         <activity
             android:name=".new_fasl"
-            android:label="@string/app_name" >
+            android:label="@string/input_fasal" >
         </activity>
 
         <activity
             android:name=".new_land"
-            android:label="@string/app_name" >
+            android:label="@string/input_land" >
         </activity>
 
 
         <activity
             android:name=".new_khad"
-            android:label="@string/app_name" >
+            android:label="@string/input_fertilizer" >
         </activity>
 
         <activity
@@ -94,11 +98,48 @@
         </activity>
 
 
+        <activity
+            android:name=".ViewFasal"
+            android:label="@string/app_name" >
+        </activity>
 
 
+        <activity
+            android:name=".ViewZameen"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name=".ViewHari"
+            android:label="@string/app_name" >
+        </activity>
 
 
+        <activity
+            android:name=".ViewKhad"
+            android:label="@string/app_name" >
+        </activity>
 
+
+        <activity
+            android:name=".ViewMachine"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name=".ViewSeed"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name=".ViewSurvey"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name=".ViewQarz"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

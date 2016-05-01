@@ -2,16 +2,14 @@ package com.example.moizahmed.test1.Screens;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelLand;
 
@@ -52,9 +50,9 @@ public class new_land extends Activity {
     }
 
     private void initUI() {
-         number= (TextView)findViewById(R.id.textView12);
-         owner = (TextView) findViewById(R.id.textView13);
-         dimension = (TextView) findViewById(R.id.textView14);
+         number= (TextView)findViewById(R.id.z_number);
+         owner = (TextView) findViewById(R.id.z_owner);
+         dimension = (TextView) findViewById(R.id.z_dimension);
          place = (TextView) findViewById(R.id.textView16);
          v1= (EditText) findViewById(R.id.landNumb);
          v2= (EditText) findViewById(R.id.ownerName);
@@ -76,7 +74,7 @@ public class new_land extends Activity {
         modelLand.setLandOwner(v2.getText().toString());
         modelLand.setDimensions(v3.getText().toString());
         modelLand.setLandLoc(v4.getText().toString());
-        DataBaseStarter dbObject = new DataBaseStarter(getApplicationContext());
+        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertLandToDb(modelLand);
     }
 

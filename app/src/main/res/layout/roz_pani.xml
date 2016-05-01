@@ -26,62 +26,42 @@
 
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="یہ پانی روزنامچہ اسکرین  ہے"
+            android:id="@+id/tv_rozPani_head"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
         android:id="@+id/text_llandno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text=""
-        />
+        android:textSize="18sp" />
 
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_pani_landNo"
+            android:layout_gravity="right"
+            android:spinnerMode="dropdown" />
+
+
+        <TextView
+        android:layout_marginTop="10dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+            android:id="@+id/textView"
+ />
 
         <EditText
-        android:id="@+id/txtbox_landNo"
-        android:layout_width="fill_parent"
+        android:layout_width="244dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:inputType="number" />
-
-
-
-    <TextView
-        android:id="@+id/text_faslname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text=""
- />
-
-    <EditText
-        android:id="@+id/txtbox_faslname"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-
-        android:inputType="text"
-        android:textSize="17sp"
-        android:ems="10"
-
-
-
-/>
-
-
-
-
-    <TextView
-        android:layout_marginTop="10dp"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text=""
-        android:id="@+id/textView"
- />
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:inputType="datetime"
+        android:id="@+id/et_pani_duration"
+        android:inputType="number"
         android:layout_marginTop="10dp"
 
         />
@@ -89,23 +69,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
         android:id="@+id/textView2"
         android:textSize="18sp"
         android:layout_marginTop="10dp"
 
-        android:layout_below="@+id/editText"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_below="@+id/et_pani_duration"
+        android:layout_alignRight="@+id/et_pani_duration"
+        android:layout_alignEnd="@+id/et_pani_duration" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="244dp"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:layout_marginTop="10dp"
 
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/et_pani_date"
         android:layout_below="@+id/textView2"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignEnd="@+id/textView2" />

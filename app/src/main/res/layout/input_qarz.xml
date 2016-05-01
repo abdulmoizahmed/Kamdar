@@ -24,20 +24,28 @@
 
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="یہ قرض اندراج اسکرین  ہے "
+            android:id="@+id/tv_inpLoan_heading"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
+            android:textSize="18sp"
 
-        android:id="@+id/textView3"
+        android:id="@+id/tv_loan_CNIC"
          />
 
     <Spinner
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        style="Widget.Spinner"
-        android:entries="@array/haari">
+        android:id="@+id/spin_loan_name"
+
+        android:entries="@array/haari"
+        android:spinnerMode="dropdown">
 
 
         <requestFocus/>
@@ -47,23 +55,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textView4"
+        android:id="@+id/tv_loan_landNumber"
         android:textSize="18sp"
 
        />
     <Spinner
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner01"
-            style="Widget.Spinner"
+            android:id="@+id/spin_loan_landNumber"
             />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textView5"
+        android:id="@+id/tv_loan_amount"
         android:textSize="18sp"
  />
 
@@ -72,31 +77,30 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/textView4"
-        android:layout_alignRight="@+id/textView5"
-        android:layout_alignEnd="@+id/textView5" />
+        android:id="@+id/et_loan_amount"
+        android:layout_below="@+id/tv_loan_landNumber"
+        android:layout_alignRight="@+id/tv_loan_amount"
+        android:layout_alignEnd="@+id/tv_loan_amount" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
         android:textSize="18sp"
 
-        android:id="@+id/textView6"
-        android:layout_below="@+id/editText3"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3" />
+        android:id="@+id/tv_loan_date"
+        android:layout_below="@+id/et_loan_amount"
+        android:layout_alignRight="@+id/et_loan_amount"
+        android:layout_alignEnd="@+id/et_loan_amount" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/textView6"
-        android:layout_alignRight="@+id/textView6"
-        android:layout_alignEnd="@+id/textView6" />
+        android:id="@+id/et_loan_date"
+        android:layout_below="@+id/tv_loan_date"
+        android:layout_alignRight="@+id/tv_loan_date"
+        android:layout_alignEnd="@+id/tv_loan_date" />
 
         <LinearLayout
             android:orientation="horizontal"

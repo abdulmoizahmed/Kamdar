@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="56dp"
+    android:paddingBottom="56dp"
+    android:background="@drawable/bg2"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="100"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:background="@drawable/button_style"
+                android:text="@string/searchFasl"
+                android:onClick="selectFasal"
+                />
+
+
+            <ImageButton
+                android:id="@+id/editBtn"
+                android:layout_width="15dp"
+                android:layout_height="40dp"
+                android:layout_weight="15"
+                android:visibility="invisible"
+                android:layout_gravity="left"
+                android:src="@drawable/pencila"
+                android:background="#0000" />
+
+            <ImageButton
+                android:id="@+id/deleteBtn"
+                android:layout_width="15dp"
+                android:layout_height="40dp"
+                android:layout_weight="15"
+                android:visibility="invisible"
+
+                android:src="@drawable/delete"
+                android:background="#0000" />
+
+
+        </LinearLayout>
+
+        />
+
+
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FragId"
+            android:name="com.example.moizahmed.test1.Fragments.SurveyViewFragment"
+            tools:layout="@layout/fragment_survey_detail"
+
+            ></fragment>
+
+
+
+    </LinearLayout>
+</ScrollView>

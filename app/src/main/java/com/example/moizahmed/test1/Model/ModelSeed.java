@@ -1,5 +1,8 @@
 package com.example.moizahmed.test1.Model;
 
+import android.content.Context;
+import android.database.Cursor;
+
 /**
  * Created by Moiz Ahmed on 3/13/2016.
  */
@@ -58,6 +61,14 @@ public class ModelSeed {
     public void setDate(String date) {
         Date = date;
     }
+
+    public Cursor getSeedDetail(Context context, String name)
+    {
+        DataBaseHelper db = new DataBaseHelper(context);
+        Cursor c = db.retrieveSeedDetails(name);;
+        return c;
+    }
+
 
 
 }

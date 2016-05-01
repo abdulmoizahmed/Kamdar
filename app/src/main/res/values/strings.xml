@@ -33,6 +33,27 @@
     <string name="machine">کیٹر پیلر</string>
     <string name="machine2">ٹویوٹا</string>
     <string name="languageText">٭اپنی من پسند زبان کو منتخب کریں</string>
+    <string name="searchFasl">منتخب کریں</string>
+    <string name="fasal_name">فصل کا نام :</string>
+    <string name="fasal_year">فصل کا سال :</string>
+    <string name="fasal_season">فصل کا موسم:</string>
+    <string name="submit">جمع کریں</string>
+    <string name="warningMessage">کیا آپ واقعی اس اندراج کو ختم کرنا چاہتے ہیں؟</string>
+    <string name="warning" > انتباہ </string>
+    <string name="yes" > ہاں</string>
+    <string name="no" > نہیں</string>
+    <string name="dialog_title">منتخب کریں</string>
+
+
+
+
+    <string name="input_land">زمین اندراج</string>
+    <string name="input_machine">مشین اندراج</string>
+    <string name="input_seed">بیج اندراج</string>
+    <string name="input_pesticides">دوائی اندراج</string>
+    <string name="input_fertilizer">کھاد اندراج</string>
+    <string name="input_farmer">ہاری اندراج</string>
+    <string name="input_fasal">ٖفصل اندراج</string>
 
 
 </resources>

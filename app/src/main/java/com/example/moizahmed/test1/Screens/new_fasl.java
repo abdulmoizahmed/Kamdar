@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelFasl;
 
@@ -46,7 +46,7 @@ public class new_fasl extends Activity {
         modelFasl.setCropName(v1.getText().toString());
         modelFasl.setSeason(v2.getText().toString());
         modelFasl.setYear(v3.getText().toString());
-        DataBaseStarter dbObject = new DataBaseStarter(getApplicationContext());
+        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertFaslToDb(modelFasl);
 
     }

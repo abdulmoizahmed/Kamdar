@@ -42,6 +42,16 @@ private String[] mainLabels;
     private Button info;
     private Button report;
 
+    //viewButtons
+    private Button view_fasal;
+    private Button view_zameen;
+    private Button view_farmer;
+    private Button view_khad;
+    private Button view_machine;
+    private Button view_seed;
+    private Button view_survey;
+    private Button view_qarz;
+
     private Intent menu;
 
 
@@ -105,7 +115,6 @@ private String[] mainLabels;
         rozMachine = (Button) findViewById(R.id.btn_Machine);
         rozSeed = (Button) findViewById(R.id.btn_seed);
         qarz = (Button) findViewById(R.id.btn_newqarz);
-        //initializing the Language buttons
 
         pani.setText(rozLabels[0]);
         rozKhad.setText(rozLabels[1]);
@@ -114,6 +123,17 @@ private String[] mainLabels;
         tax.setText(rozLabels[4]);
         servey.setText(rozLabels[5]);
         qarz.setText(rozLabels[6]);
+
+        //Maloomat Forms
+
+        view_fasal = (Button) findViewById(R.id.btn_viewfasl);
+        view_zameen = (Button)findViewById(R.id.btn_viewland);
+        view_farmer = (Button)findViewById(R.id.btn_viewhari);
+        view_khad = (Button)findViewById(R.id.btn_viewfertilzier);
+        view_machine = (Button)findViewById(R.id.btn_viewmachine);
+        view_seed = (Button)findViewById(R.id.btn_viewseed);
+        view_survey = (Button)findViewById(R.id.btn_viewservey);
+        view_qarz = (Button)findViewById(R.id.btn_viewqarz);
 
     }
 
@@ -136,6 +156,16 @@ private String[] mainLabels;
         servey.setOnClickListener(new MainButtonListener());
         qarz.setOnClickListener(new MainButtonListener());
 
+        //Malomat listern
+
+        view_fasal.setOnClickListener(new MainButtonListener());
+        view_zameen.setOnClickListener(new MainButtonListener());
+        view_farmer.setOnClickListener(new MainButtonListener());
+        view_khad.setOnClickListener(new MainButtonListener());
+        view_machine.setOnClickListener(new MainButtonListener());
+        view_seed.setOnClickListener(new MainButtonListener());
+        view_survey.setOnClickListener(new MainButtonListener());
+        view_qarz.setOnClickListener(new MainButtonListener());
 
     }
 
@@ -248,6 +278,41 @@ private String[] mainLabels;
                     break;
                 case R.id.btn_newqarz:
                     menu = new Intent(Main.this,new_qarz.class);
+                    startActivity(menu);
+                    break;
+
+                case R.id.btn_viewfasl:
+                    menu = new Intent(Main.this,ViewFasal.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn_viewland:
+                    menu = new Intent(Main.this,ViewZameen.class);
+                    startActivity(menu);
+                    break;
+
+                case R.id.btn_viewhari:
+                    menu = new Intent(Main.this,ViewHari.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn_viewfertilzier:
+                    menu = new Intent(Main.this,ViewKhad.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn_viewmachine:
+                    menu = new Intent(Main.this,ViewMachine.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn_viewseed:
+                    menu = new Intent(Main.this,ViewSeed.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn_viewservey:
+                    menu = new Intent(Main.this,ViewSurvey.class);
+                    startActivity(menu);
+                    break;
+
+                case R.id.btn_viewqarz:
+                    menu = new Intent(Main.this,ViewQarz.class);
                     startActivity(menu);
                     break;
 

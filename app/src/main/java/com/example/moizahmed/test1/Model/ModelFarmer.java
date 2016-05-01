@@ -1,5 +1,8 @@
 package com.example.moizahmed.test1.Model;
 
+import android.content.Context;
+import android.database.Cursor;
+
 /**
  * Created by umair on 3/13/2016.
  */
@@ -103,4 +106,13 @@ public class ModelFarmer {
     public void setDate(String date) {
         this.date = date;
     }
+
+
+    public Cursor getFarmerDetail(Context context, String name)
+    {
+        DataBaseHelper db = new DataBaseHelper(context);
+        Cursor c = db.retrieveFarmerDetails(name);;
+        return c;
+    }
+
 }

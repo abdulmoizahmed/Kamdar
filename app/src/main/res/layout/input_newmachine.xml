@@ -93,13 +93,12 @@ android:fitsSystemWindows="true">
         android:layout_gravity="right"
         android:text="" />
 
-    <Spinner
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerType"
+        android:id="@+id/quantity"
         android:layout_gravity="right"
-        android:spinnerMode="dropdown"
-        android:entries="@array/machineOwnership" />
+         />
 
     <TextView
         android:layout_width="wrap_content"

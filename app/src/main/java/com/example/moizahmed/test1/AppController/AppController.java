@@ -2,11 +2,7 @@ package com.example.moizahmed.test1.AppController;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import com.example.moizahmed.test1.Model.DataBaseStarter;
 
 /**
  * Created by Moiz Ahmed on 2/5/2016.

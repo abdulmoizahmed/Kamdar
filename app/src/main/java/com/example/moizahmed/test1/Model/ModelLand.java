@@ -1,5 +1,8 @@
 package com.example.moizahmed.test1.Model;
 
+import android.content.Context;
+import android.database.Cursor;
+
 /**
  * Created by Moiz Ahmed on 3/13/2016.
  */
@@ -40,5 +43,12 @@ public class ModelLand {
 
     public void setLandLoc(String landLoc) {
         this.landLoc = landLoc;
+    }
+
+    public Cursor getLandDetail(Context context, String name)
+    {
+        DataBaseHelper db = new DataBaseHelper(context);
+        Cursor c = db.retrieveLandDetails(name);;
+        return c;
     }
 }

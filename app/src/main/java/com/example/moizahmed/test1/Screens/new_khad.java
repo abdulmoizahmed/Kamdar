@@ -2,16 +2,14 @@ package com.example.moizahmed.test1.Screens;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.moizahmed.test1.Model.DataBaseStarter;
+import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelKhad;
 
@@ -57,7 +55,7 @@ public class new_khad extends Activity {
         modelKhad.setQuantity(v3.getText().toString());
         modelKhad.setExpense(v4.getText().toString());
         modelKhad.setDate(v5.getText().toString());
-        DataBaseStarter dbObject = new DataBaseStarter(getApplicationContext());
+        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertKhadToDb(modelKhad);
 
     }

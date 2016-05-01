@@ -1,12 +1,15 @@
 package com.example.moizahmed.test1.Model;
 
+import android.content.Context;
+import android.database.Cursor;
+
 /**
  * Created by Moiz Ahmed on 2/27/2016.
  */
 public class ModelKhad {
 
     ModelKhad modelKhad;
-    DataBaseStarter dbObject;
+    DataBaseHelper dbObject;
     String name;
     String company;
     String ID;
@@ -73,5 +76,13 @@ public class ModelKhad {
     {
         return  modelKhad;
     }
+
+    public Cursor getKhadDetail(Context context, String name)
+    {
+        DataBaseHelper db = new DataBaseHelper(context);
+        Cursor c = db.retrieveFertilizerDetails(name);;
+        return c;
+    }
+
 
 }

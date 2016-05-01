@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:id="@+id/textView12"
+        android:id="@+id/z_number"
         android:textSize="17sp"
  />
 
@@ -43,7 +43,7 @@
         android:text=""
         android:layout_marginTop="5dp"
         android:textSize="17sp"
-        android:id="@+id/textView13"
+        android:id="@+id/z_owner"
         android:layout_below="@+id/editText8"
         android:layout_alignRight="@+id/editText8"
         android:layout_alignEnd="@+id/editText8" />
@@ -62,7 +62,7 @@
         android:text=""
         android:layout_marginTop="5dp"
         android:textSize="17sp"
-        android:id="@+id/textView14"
+        android:id="@+id/z_dimension"
         android:layout_below="@+id/editText9"
         android:layout_alignRight="@+id/editText9"
         android:layout_alignEnd="@+id/editText9" />
@@ -83,8 +83,8 @@
         android:textSize="17sp"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/editText10"
-        android:layout_alignRight="@+id/textView14"
-        android:layout_alignEnd="@+id/textView14" />
+        android:layout_alignRight="@+id/z_dimension"
+        android:layout_alignEnd="@+id/z_dimension" />
 
     <EditText
         android:layout_width="wrap_content"
