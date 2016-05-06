@@ -3,31 +3,39 @@ package com.example.moizahmed.test1.Screens;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelLand;
+import com.iangclifton.android.floatlabel.FloatLabel;
 
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
 public class new_land extends Activity {
     private String[] labels;
-    private TextView number;
-    private TextView owner;
-    private TextView dimension;
-    private TextView place;
+    private FloatLabel number;
+    private FloatLabel owner;
+    private FloatLabel dimension;
+    private FloatLabel place;
     private EditText v1;
     private EditText v2;
     private EditText v3;
     private EditText v4;
     private Button submit;
-    private Button refresh;
+    DataBaseHelper dbObject;
+
+    String error;
+    String selectError;
+    String notunique;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,31 +49,37 @@ public class new_land extends Activity {
     }
 
     private void setLabels() {
-        number.setText(labels[0]);
-        owner.setText(labels[1]);
-        dimension.setText(labels[2]);
-        place.setText(labels[3]);
+        number.setLabel(labels[0]);
+        owner.setLabel(labels[1]);
+        dimension.setLabel(labels[2]);
+        place.setLabel(labels[3]);
 
 
     }
 
+
     private void initUI() {
-         number= (TextView)findViewById(R.id.z_number);
-         owner = (TextView) findViewById(R.id.z_owner);
-         dimension = (TextView) findViewById(R.id.z_dimension);
-         place = (TextView) findViewById(R.id.textView16);
-         v1= (EditText) findViewById(R.id.landNumb);
-         v2= (EditText) findViewById(R.id.ownerName);
-         v3= (EditText) findViewById(R.id.dims);
-         v4= (EditText) findViewById(R.id.editText12);
+         number= (FloatLabel) findViewById(R.id.landNumb);
+         owner= (FloatLabel) findViewById(R.id.ownerName);
+         dimension= (FloatLabel) findViewById(R.id.dims);
+         place= (FloatLabel) findViewById(R.id.editText12);
+
+        v1 = number.getEditText();
+        v2 = owner.getEditText();
+        v3 = dimension.getEditText();
+        v4 = place.getEditText();
          submit = (Button) findViewById(R.id.btn_submit);
-         refresh =(Button) findViewById(R.id.refresh);
+
+        error =getResources().getString(R.string.empty);
+        selectError =getResources().getString(R.string.dialog_title);
+        notunique =getResources().getString(R.string.not_unique);
+
+      dbObject = new DataBaseHelper(getApplicationContext());
 
     }
 
     private void startListeners() {
         submit.setOnClickListener(new KhadButtonListener());
-        refresh.setOnClickListener(new KhadButtonListener());
 
     }
     private void setLandObject() {
@@ -74,7 +88,6 @@ public class new_land extends Activity {
         modelLand.setLandOwner(v2.getText().toString());
         modelLand.setDimensions(v3.getText().toString());
         modelLand.setLandLoc(v4.getText().toString());
-        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertLandToDb(modelLand);
     }
 
@@ -101,17 +114,52 @@ public class new_land extends Activity {
             switch (v.getId())
             {
                 case R.id.btn_submit:
-                    setLandObject();
-                    showDialogMessage();
+                    validateInputs();
                     break;
-                case R.id.refresh:
-                    Intent menu = new Intent("new_land");
-                    startActivity(menu);
-                    finish();
-                    break;
+
 
             }
         }
+    }
+
+    private void validateInputs() {
+        Cursor cursor =  dbObject.retrieveLandDetails(v1.getText().toString());
+
+
+        if(v1.getText().toString().isEmpty())
+        {
+            v1.setError(error);
+            v1.requestFocus();
+        }
+        else if(cursor.getCount()>0)
+        {
+            v1.setError(notunique);
+            v1.requestFocus();
+        }
+
+        else if(v2.getText().toString().isEmpty())
+        {
+            v2.setError(error);
+            v2.requestFocus();
+        }
+        else if(v3.getText().toString().isEmpty())
+        {
+            v3.setError(error);
+            v3.requestFocus();
+        }
+        else if(v4.getText().toString().isEmpty())
+        {
+            v4.setError(error);
+            v4.requestFocus();
+        }
+        else
+        {
+            setLandObject();
+            Toast.makeText(getApplicationContext(), R.string.success, Toast.LENGTH_SHORT).show();
+
+        }
+
+
     }
 
 

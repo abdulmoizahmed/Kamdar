@@ -32,6 +32,7 @@ public class GetAdapters {
         while(c.moveToNext()){mSpinnerArray[i++] = c.getString(0);}
         c.close();
         adapter = new ArrayAdapter<String>(context, spinnerResource,mSpinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return adapter;
     }
 
@@ -42,6 +43,7 @@ public class GetAdapters {
         while(c.moveToNext()){mSpinnerArray[i++] = c.getString(0);}
         c.close();
         adapter = new ArrayAdapter<String>(context, spinnerResource,mSpinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return adapter;
     }
 
@@ -52,6 +54,7 @@ public class GetAdapters {
         while(c.moveToNext()){mSpinnerArray[i++] = c.getString(0);}
         c.close();
         adapter = new ArrayAdapter<String>(context, spinnerResource,mSpinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return adapter;
     }
 
@@ -65,6 +68,7 @@ public class GetAdapters {
             mSpinnerArray[i++] = c.getString(0);}
         c.close();
         adapter = new ArrayAdapter<String>(context, spinnerResource,mSpinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         return adapter;
     }
 

@@ -115,9 +115,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO Survey VALUES('" + modelSurvey.getSurveyCode().toString() + "','" + modelSurvey.getCompany().toString() + "','" + modelSurvey.getExpense().toString() + "','" + modelSurvey.getPh().toString() + "','" + modelSurvey.getDate().toString() + "','" + modelSurvey.getLandNumber().toString() + "')");
     }
 
+    //CNIC TEXT PRIMARY KEY,
+    // landNumber TEXT,
+    // cropName TEXT,
+    // name VARCHAR ,
+    // salary VARCHAR,
+    // address TEXT,
+    // phone VARCHAR,
+    // conditions VARCHAR,
+    // contratcType VARCHAR,
+    // experience VARCHAR
+    // ,date VARCHAR,;";
+
     public void insertFarmerToDb(ModelFarmer modelFarmer) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT INTO Farmer VALUES('" + modelFarmer.getCNIC().toString() + "','" + modelFarmer.getName().toString() + "','" + modelFarmer.getCropName().toString() + "','" + modelFarmer.getSalary().toString() + "','" + modelFarmer.getAddress().toString() + "','" + modelFarmer.getPhone().toString() + "','" + modelFarmer.getConditions().toString() + "','" + modelFarmer.getContract().toString() + "','" + modelFarmer.getExperience().toString() + "','" + modelFarmer.getLandNumber().toString() + "','" + modelFarmer.getDate().toString() + "')");
+        db.execSQL("INSERT INTO Farmer VALUES('" + modelFarmer.getCNIC().toString() + "','" + modelFarmer.getLandNumber().toString() + "','" + modelFarmer.getCropName().toString() + "','" + modelFarmer.getName().toString() + "','"+modelFarmer.getSalary() + "','" + modelFarmer.getAddress().toString() + "','" + modelFarmer.getPhone().toString() + "','" + modelFarmer.getConditions().toString() + "','" + modelFarmer.getContract().toString() + "','" + modelFarmer.getExperience().toString() +  "','" + modelFarmer.getDate().toString() + "')");
     }
     public void insertIssueFertilizerToDb(ModelIssueFertilizer modelIssueFertilizer) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -365,6 +377,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return c;
     }
 
+    public Cursor retrieveFarmerCnic(String number) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM Farmer Where CNIC = '" +number+ "' ";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+
 
     public Cursor retrieveMachineDetails(String number) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -380,9 +399,23 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return c;
     }
 
+    public Cursor retrieveSeedID(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM Seeds Where ID = '"+name+"' ";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+
     public Cursor retrieveFertilizerDetails(String name) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM Fertilizer Where name = '"+name+"' ";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+
+    public Cursor retrieveFertilizerIDD(String name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM Fertilizer Where ID = '"+name+"' ";
         Cursor c = db.rawQuery(query,null);
         return c;
     }
@@ -393,4 +426,5 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         Cursor c = db.rawQuery(query,null);
         return c;
     }
+
 }

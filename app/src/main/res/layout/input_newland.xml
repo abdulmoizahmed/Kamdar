@@ -4,7 +4,11 @@
 
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true">
+    android:layoutDirection="rtl"
+    android:background="@color/intro_bg_color_2"
+
+
+    >
 
 
     <LinearLayout
@@ -13,6 +17,8 @@
         android:gravity="right"
         android:layout_height="wrap_content"
         android:paddingTop="56dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
@@ -22,79 +28,44 @@
             android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal" />
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/z_number"
-        android:textSize="17sp"
- />
 
 
-        <EditText
-            android:layout_width="212dp"
+        <com.iangclifton.android.floatlabel.FloatLabel
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/landNumb"
-            android:layout_gravity="right" />
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_marginTop="5dp"
-        android:textSize="17sp"
-        android:id="@+id/z_owner"
-        android:layout_below="@+id/editText8"
-        android:layout_alignRight="@+id/editText8"
-        android:layout_alignEnd="@+id/editText8" />
+            android:layout_gravity="right"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:hint=""
+            />
 
-        <EditText
-            android:layout_width="wrap_content"
+
+        <com.iangclifton.android.floatlabel.FloatLabel
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:ems="10"
+            android:textColorHint="@color/colorPrimaryDark"
+
             android:id="@+id/ownerName"
             android:layout_gravity="right" />
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_marginTop="5dp"
-        android:textSize="17sp"
-        android:id="@+id/z_dimension"
-        android:layout_below="@+id/editText9"
-        android:layout_alignRight="@+id/editText9"
-        android:layout_alignEnd="@+id/editText9" />
-
-        <EditText
-            android:layout_width="wrap_content"
+        <com.iangclifton.android.floatlabel.FloatLabel
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
+            android:textColorHint="@color/colorPrimaryDark"
+
+            android:inputType="numberDecimal"
             android:id="@+id/dims"
             android:layout_gravity="right" />
 
-        <TextView
-        android:layout_width="wrap_content"
+    <com.iangclifton.android.floatlabel.FloatLabel
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textView16"
-        android:textSize="17sp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/editText10"
-        android:layout_alignRight="@+id/z_dimension"
-        android:layout_alignEnd="@+id/z_dimension" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textColorHint="@color/colorPrimaryDark"
         android:inputType="textMultiLine"
-        android:ems="10"
         android:id="@+id/editText12"
-        android:layout_below="@+id/textView16"
-        android:layout_alignRight="@+id/textView16"
-        android:layout_alignEnd="@+id/textView16" />
+  />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -102,15 +73,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:layout_weight="50"
-                android:layout_height="wrap_content"
-                android:text="مزید اضافہ"
-                android:id="@+id/refresh"
-                />
 
             <Button
                 android:layout_width="fill_parent"
@@ -118,6 +80,9 @@
                 android:layout_marginBottom="24dp"
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+
                 android:text="جمع کردو"
                 android:id="@+id/btn_submit"
                 />

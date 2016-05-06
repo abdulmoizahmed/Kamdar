@@ -38,6 +38,9 @@ public class MyIntro extends AppIntro
 
     @Override
     public void onSkipPressed() {
+        Intent my  = new Intent(MyIntro.this,MainActivity.class);
+        startActivity(my);
+        finish();
 
     }
 

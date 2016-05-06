@@ -207,7 +207,7 @@
         <item>شرائط</item>
         <item>مائدہ</item>
         <item>سی-ای-این-سی</item>
-        <item>تجربہ</item>
+        <item>تجربہ(سال)</item>
     </string-array>>
 
     <string-array name="sindhi_inputHari">
@@ -220,7 +220,7 @@
         <item>    ہاری اجرت</item>
         <item>شرائط</item>
         <item>سی-ای-این-سی</item>
-        <item>تجربو</item>
+        <item>تجربو(سال)</item>
     </string-array>>
 
     <string-array name="urdu_inputmachine">

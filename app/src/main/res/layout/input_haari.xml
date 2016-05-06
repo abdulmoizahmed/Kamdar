@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layoutDirection="rtl"
-    android:fitsSystemWindows="true"
+    android:background="@color/intro_bg_color_2"
+
     >
 
 
@@ -13,206 +14,183 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:gravity="right"
+        android:layoutDirection="rtl"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_height="wrap_content"
         android:paddingTop="56dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
         <ImageView android:src="@drawable/logo1"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
             android:layout_marginBottom="24dp"
+            android:textColorHint="@color/colorPrimaryDark"
             android:layout_gravity="center_horizontal" />
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <com.iangclifton.android.floatlabel.FloatLabel
+                android:id="@+id/hari_name"
+                android:layout_width="match_parent"
+
+            android:textColorHint="@color/colorPrimaryDark"
 
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/hari_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
                 android:hint=""/>
 
 
-        </android.support.design.widget.TextInputLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/land_number"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            />
 
 
 
-        <Spinner
+        <fr.ganfra.materialspinner.MaterialSpinner
 
             android:id="@+id/SpinnerLandNumber"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
 
-
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:spinnerMode="dropdown">
-        </Spinner>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/fasal_number"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            />
+            app:ms_arrowColor="@color/black"
+            app:ms_floatingLabelColor="@color/black"
+            app:ms_floatingLabelText=""
+            app:ms_hint="@string/dialog_enter_zamen"
+            app:ms_hintColor="@color/colorPrimaryDark"
+            app:ms_multiline="true"
+            app:ms_alignLabels="true"             />
+/>
 
 
 
-        <Spinner
+
+        <fr.ganfra.materialspinner.MaterialSpinner
 
             android:id="@+id/SpinnerfaslNumber"
             android:layout_height="wrap_content"
+
             android:layout_width="fill_parent"
+            app:ms_arrowColor="@color/black"
+            app:ms_floatingLabelColor="@color/black"
+            app:ms_floatingLabelText=""
+            app:ms_hint="@string/dialog_enter_fasal"
+            app:ms_hintColor="@color/colorPrimaryDark"
+            app:ms_multiline="true"
+            app:ms_alignLabels="true"
+            />
 
 
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:spinnerMode="dropdown">
-        </Spinner>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="تاریخ"
-            android:id="@+id/date"
-                  />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/editText13" />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/hari_address"
+            <com.iangclifton.android.floatlabel.FloatLabel
+                android:id="@+id/hari_address"
                 android:layout_width="match_parent"
+                android:textColorHint="@color/colorPrimaryDark"
+
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"
                 android:hint="" />
-        </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            <com.iangclifton.android.floatlabel.FloatLabel
+                android:id="@+id/hari_number"
+                android:textColorHint="@color/colorPrimaryDark"
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/hari_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="phone"
                 android:hint="" />
-        </android.support.design.widget.TextInputLayout>
 
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="vertical">
-            <EditText android:id="@+id/hari_income"
+            <com.iangclifton.android.floatlabel.FloatLabel
+                android:id="@+id/hari_income"
                 android:layout_width="match_parent"
+                android:digits="0123456789,"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:hint="" />
-        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+        <com.iangclifton.android.floatlabel.FloatLabel
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hari_conds"
+            android:textColorHint="@color/colorPrimaryDark"
             android:layout_gravity="right"
             android:hint="" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:orientation="vertical"></android.support.design.widget.TextInputLayout>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/agreement"
-            />
-        <Spinner
-            android:hint="مائدہ"
+        <fr.ganfra.materialspinner.MaterialSpinner
             android:id="@+id/SpinnerFeedbackType"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:entries="@array/contype"
-            android:layout_below="@+id/muhaida"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:spinnerMode="dropdown">
-        </Spinner>
+
+            app:ms_arrowColor="@color/black"
+            app:ms_floatingLabelColor="@color/black"
+            app:ms_floatingLabelText=""
+            app:ms_hint="@string/dialog_enter_contract"
+
+            app:ms_hintColor="@color/colorPrimaryDark"
+            app:ms_multiline="true"
+            app:ms_alignLabels="true"
+
+            >
+
+        </fr.ganfra.materialspinner.MaterialSpinner>
 
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+            <com.iangclifton.android.floatlabel.FloatLabel
+                android:id="@+id/hari_"
+                android:layout_width="match_parent"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:digits="0123456789-"
+                android:hint="" />
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/hari_"
+
+
+            <com.iangclifton.android.floatlabel.FloatLabel
+                android:id="@+id/hari_experince"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="2"
+                android:textColorHint="@color/colorPrimaryDark"
                 android:inputType="number"
                 android:hint="" />
-        </android.support.design.widget.TextInputLayout>
 
 
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_layout"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/hari_experince"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:hint="" />
-        </android.support.design.widget.TextInputLayout>
+            android:id="@+id/txt_date"
+            android:textSize="20sp"
+            android:layout_marginBottom="24dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginRight="10dp"
+            android:id="@+id/editText13"
+            android:text="@string/dialog_title"
 
+            />
+</LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:weightSum="100"
+            android:layout_marginTop="24dp"
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
@@ -221,16 +199,10 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
                 android:layout_weight="50"
-                android:layout_height="wrap_content"
-                android:text="مزید اضافہ"
-                android:id="@+id/refresh"
-                />
 
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:layout_weight="50"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+
                 android:layout_height="wrap_content"
                 android:text="اندراج کریں"
                 android:id="@+id/btn_submit"

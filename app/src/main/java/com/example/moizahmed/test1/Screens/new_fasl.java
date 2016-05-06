@@ -3,29 +3,43 @@ package com.example.moizahmed.test1.Screens;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelFasl;
+import com.iangclifton.android.floatlabel.FloatLabel;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+
+import java.util.Calendar;
 
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
-public class new_fasl extends Activity {
+public class new_fasl extends Activity implements DatePickerDialog.OnDateSetListener {
     String[] labels;
-    private EditText v1;
+    //private EditText v1;
+    EditText v1;
     private EditText v2;
-    private EditText v3;
+    private TextView v3;
     private TextView name;
     private TextView yearr;
     private TextView date;
     private Button submit;
     private Button refresh;
+    FloatLabel floatLabel;
+    FloatLabel floatLabe2;
+    String error;
+    String selectError;
+    String unique;
+    String notunique;
+    DataBaseHelper dbObject;
 
 
 
@@ -41,45 +55,61 @@ public class new_fasl extends Activity {
 
     }
 
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        v3.setText(""+year);
+
+    }
+
+
     private void setFaslObject() {
         ModelFasl modelFasl = new ModelFasl();
+
         modelFasl.setCropName(v1.getText().toString());
         modelFasl.setSeason(v2.getText().toString());
         modelFasl.setYear(v3.getText().toString());
-        DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
+
         dbObject.insertFaslToDb(modelFasl);
 
     }
 
     private void showDialogMessage() {
-        AlertDialog alertDialog = new AlertDialog.Builder(new_fasl.this).create();
-        alertDialog.setMessage("شکریہ! اندراج ہوگیا ہے۔");
-        alertDialog.setIcon(R.drawable.logo1);
-        alertDialog.show();
+        Toast.makeText(new_fasl.this, R.string.success, Toast.LENGTH_SHORT).show();
+
+
     }
 
     private void startListeners() {
         submit.setOnClickListener(new KhadButtonListener());
-        refresh.setOnClickListener(new KhadButtonListener());
+        v3.setOnClickListener(new KhadButtonListener());
 
     }
 
     private void initUI() {
-         v1= (EditText) findViewById(R.id.editText28);
-         v2= (EditText) findViewById(R.id.editText29);
-         v3= (EditText) findViewById(R.id.editText30);
-         name= (TextView)findViewById(R.id.txt_faslname);
-         yearr = (TextView) findViewById(R.id.txt_season);
+         floatLabel =(FloatLabel)findViewById(R.id.editText28);
+        // v1= (EditText) findViewById(R.id.editText28);
+         floatLabe2= (FloatLabel) findViewById(R.id.editText29);
+
+         v3= (TextView) findViewById(R.id.editText30);
+
          date = (TextView) findViewById(R.id.txt_date);
          submit = (Button) findViewById(R.id.btn_submit);
-         refresh =(Button) findViewById(R.id.refresh);
 
+        error =getResources().getString(R.string.empty);
+        selectError =getResources().getString(R.string.dialog_title);
+        notunique =getResources().getString(R.string.not_unique);
+
+        v1 = floatLabel.getEditText();
+        v2 = floatLabe2.getEditText();
+
+        dbObject = new DataBaseHelper(getApplicationContext());
 
     }
 
     private void setLabels() {
-        name.setText(labels[0]);
-        yearr.setText(labels[1]);
+
+        floatLabel.setLabel(labels[0]);
+        floatLabe2.setLabel(labels[1]);
         date.setText(labels[2]);
 
     }
@@ -100,17 +130,52 @@ public class new_fasl extends Activity {
             switch (v.getId())
             {
                 case R.id.btn_submit:
-                    setFaslObject();
-                    showDialogMessage();
+                    validateInput();
                     break;
-                case R.id.refresh:
-                    Intent menu = new Intent("new_fasl");
-                    startActivity(menu);
-                    finish();
+
+                case R.id.editText30:
+                    Calendar now = Calendar.getInstance();
+                    DatePickerDialog dpd = DatePickerDialog.newInstance(
+                            new_fasl.this,
+                            now.get(Calendar.YEAR),
+                            now.get(Calendar.MONTH),
+                            now.get(Calendar.DAY_OF_MONTH)
+                    );
+                    dpd.show(getFragmentManager(), "Datepickerdialog");
                     break;
 
             }
         }
+    }
+
+    private void validateInput() {
+       unique = v1.getText().toString();
+       Cursor cursor =  dbObject.retrieveFasalDetails(unique);
+
+        if(unique.isEmpty() )
+        {
+            v1.setError(error);
+
+        }
+        else if(cursor.getCount()>0)
+        {
+            v1.setError(notunique);
+        }
+        else if(v2.getText().toString().isEmpty())
+        {
+            v2.setError(error);
+        }
+        else if(v3.getText().toString().equals(selectError))
+        {
+            v3.setError(error);
+        }
+        else{
+            setFaslObject();
+            showDialogMessage();
+
+        }
+
+
     }
 
 }
