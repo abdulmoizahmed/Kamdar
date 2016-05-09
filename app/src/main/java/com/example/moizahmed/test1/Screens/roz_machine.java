@@ -12,13 +12,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelIssueMachine;
-
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015 and Umair Younas.
  */
@@ -43,6 +45,7 @@ public class roz_machine extends Activity {
     SQLiteDatabase db;
     Button submit;
     Button refresh;
+    Spinner s1,s2,s3;
 
     Cursor c;
     Cursor d;
@@ -56,9 +59,11 @@ public class roz_machine extends Activity {
 
         setLanguage();
 
-        spinValues();
+
 
         initUI();
+
+        setAdapters();
         setLabels();
         startListeners();
 
@@ -66,66 +71,13 @@ public class roz_machine extends Activity {
 
 
 
-    public void spinValues(){
+    public void setAdapters(){
 
+        GetAdapters adapters = new GetAdapters(getApplicationContext());
 
-        db=openOrCreateDatabase("Khaatah", Context.MODE_PRIVATE, null); // open db...
-
-        Cursor c = db.rawQuery("SELECT modelNumber FROM NewMachines;",null);
-        Cursor d = db.rawQuery("SELECT landNumber FROM Land;",null);
-        Cursor e = db.rawQuery("SELECT cropName FROM Crop;",null);
-
-        final String[] arraySpinner1 = new String[c.getCount()];
-        final String[] arraySpinner2 = new String[d.getCount()];
-        final String[] arraySpinner3 = new String[e.getCount()];
-
-        final Spinner v1= (Spinner) findViewById(R.id.spin_rozMachine_no);
-        final Spinner v2= (Spinner) findViewById(R.id.spin_rozMachine_land);
-        final Spinner v3= (Spinner) findViewById(R.id.spin_rozMachine_crop);
-
-        int i=0;
-        while(c.moveToNext())
-        {
-            arraySpinner1[i++] = c.getString(0);
-        }
-
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner1);
-        v1.setAdapter(adapter);
-
-        int j=0;
-        while(d.moveToNext())
-        {
-            arraySpinner2[j++] = d.getString(0);
-        }
-
-
-        ArrayAdapter<String> myadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner2);
-        v2.setAdapter(myadapter);
-        int k=0;
-        while(e.moveToNext())
-        {
-            arraySpinner3[k++] = e.getString(0);
-        }
-
-
-        ArrayAdapter<String> myadapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner3);
-        v3.setAdapter(myadapter2);
-
-        Spinner mySpinnerLand=(Spinner) findViewById(R.id.spin_rozMachine_no);
-        final String ID = mySpinnerLand.getSelectedItem().toString();
-
-        Spinner mySpinnerID=(Spinner) findViewById(R.id.spin_rozMachine_land);
-        final String landNum = mySpinnerID.getSelectedItem().toString();
-
-        Spinner mySpinnerCompany=(Spinner) findViewById(R.id.spin_rozMachine_crop);
-        final String crop = mySpinnerCompany.getSelectedItem().toString();
-
-
-        id = ID;
-        landno = landNum;
-        fasal = crop;
-        db.close();
+        s1.setAdapter(adapters.getMachineNo());
+        s2.setAdapter(adapters.getLandArray());
+        s3.setAdapter(adapters.getFasalArraySpinner());
 
 
     }
@@ -150,26 +102,31 @@ public class roz_machine extends Activity {
         Expense = (TextView) findViewById(R.id.textView36);
         date = (TextView) findViewById(R.id.textView37);
 
+         s1= (Spinner) findViewById(R.id.spin_rozMachine_no);
+         s2= (Spinner) findViewById(R.id.spin_rozMachine_land);
+         s3= (Spinner) findViewById(R.id.spin_rozMachine_crop);
+
+
         v1= (EditText) findViewById(R.id.editText23);
         v2= (EditText) findViewById(R.id.editText24);
         v3= (EditText) findViewById(R.id.et_rozMachine_duration);
 
         submit = (Button) findViewById(R.id.btn_submit);
-        refresh =(Button) findViewById(R.id.refresh);
+
 
     }
 
     private void startListeners() {
         submit.setOnClickListener(new IssueMachineButtonListener());
-        refresh.setOnClickListener(new IssueMachineButtonListener());
+
 
     }
     private void setMachineObject() {
         ModelIssueMachine modelIssueMachine = new ModelIssueMachine();
 
-        modelIssueMachine.setLandNumber(landno);
-        modelIssueMachine.setModelNumber(id);
-        modelIssueMachine.setCropName(fasal);
+        modelIssueMachine.setLandNumber(s1.getSelectedItem().toString());
+        modelIssueMachine.setModelNumber(s2.getSelectedItem().toString());
+        modelIssueMachine.setCropName( s3.getSelectedItem().toString());
         modelIssueMachine.setDate(v1.getText().toString());
         modelIssueMachine.setExpense(v2.getText().toString());
         modelIssueMachine.setDuration(v3.getText().toString());
@@ -225,11 +182,7 @@ public class roz_machine extends Activity {
                         showDialogMessage();
                     }
                     break;
-                case R.id.refresh:
-                    Intent intent = new Intent(getApplicationContext(), com.example.moizahmed.test1.Screens.roz_machine.class);
-                    startActivity(intent);
-                    finish();
-                    break;
+
 
             }
         }

@@ -15,7 +15,8 @@ import android.widget.Toast;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelFarmer;
-import com.example.moizahmed.test1.Screens.R;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 4/30/2016.
@@ -46,6 +47,8 @@ public class HariViewFragment extends Fragment {
     EditText HariContract;
     EditText HariCnic;
     EditText HariExperience;
+    FloatingActionsMenu v;
+
 
     String[] labels;
     Button save;
@@ -70,18 +73,6 @@ public class HariViewFragment extends Fragment {
     }
 
     private void initView(View view) {
-
-//         tHariName;
-//         tHariLand;
-//         tHariCrop;
-//         tHariDate;
-//         tHariAddress;
-//         tHariPhone;
-//         tHariSalary;
-//         tHariCondition;
-//         tHariContract;
-//         tHariCnic;
-//         tHariExperience;
 
         tHariName = (TextView)view.findViewById(R.id.txt_hari_name);
         tHariLand= (TextView)view.findViewById(R.id.txt_hari_zameen);
@@ -156,7 +147,8 @@ public class HariViewFragment extends Fragment {
     }
 
     public void Editable() {
-
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
         HariName.setEnabled(true);
         HariLand.setEnabled(true);
         HariCrop.setEnabled(true);
@@ -280,6 +272,23 @@ public class HariViewFragment extends Fragment {
         HariContract.setText("");
         HariCnic.setText("");
         HariExperience.setText("");
+
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
+        v.setVisibility(View.GONE);
+
+
+        tHariName.setVisibility(View.GONE);
+        tHariLand.setVisibility(View.GONE);
+        tHariCrop.setVisibility(View.GONE);
+        tHariDate.setVisibility(View.GONE);
+        tHariAddress.setVisibility(View.GONE);
+        tHariPhone.setVisibility(View.GONE);
+        tHariSalary.setVisibility(View.GONE);
+        tHariCondition.setVisibility(View.GONE);
+        tHariContract.setVisibility(View.GONE);
+        tHariCnic.setVisibility(View.GONE);
+        tHariExperience.setVisibility(View.GONE);
 
 
     }

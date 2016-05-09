@@ -3,7 +3,7 @@ package com.example.moizahmed.test1.Screens;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
+import com.example.moizahmed.test1.R;
 import com.github.paolorotolo.appintro.AppIntro;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 

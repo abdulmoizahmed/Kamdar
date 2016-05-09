@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelRozTax;
-
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
@@ -62,7 +62,6 @@ public class roz_tax extends Activity {
 
     private void startListeners() {
         submit.setOnClickListener(new KhadButtonListener());
-        refresh.setOnClickListener(new KhadButtonListener());
 
     }
 
@@ -97,7 +96,7 @@ public class roz_tax extends Activity {
          v3= (EditText) findViewById(R.id.taxComp);
          v4= (Spinner) findViewById(R.id.spinner6);
          v5= (EditText) findViewById(R.id.editText20);
-         refresh =(Button) findViewById(R.id.refresh);
+
          submit = (Button) findViewById(R.id.btn_submit);
 
     }
@@ -130,11 +129,7 @@ public class roz_tax extends Activity {
                     setLandObject();
                     showDialogMessage();
                     break;
-                case R.id.refresh:
-                    Intent menu = new Intent("roz_tax");
-                    startActivity(menu);
-                    finish();
-                    break;
+
 
             }
         }

@@ -15,28 +15,16 @@ import android.widget.Toast;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelMachine;
-import com.example.moizahmed.test1.Screens.R;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 4/30/2016.
  */
 public class MachineViewFragment extends Fragment {
-//
-//    khadNumber
-//    khadName
-//    khadCompany
-//    khadQuantity
-//    khadExpense
-//    khadDate
 
 
-//    ekhadNumber
-//    ekhadName
-//    ekhadCompany
-//    ekhadQuantity
-//    ekhadExpense
-//    ekhadDate
-
+    FloatingActionsMenu v ;
 
     TextView khadNumber;
     TextView khadName;
@@ -78,7 +66,7 @@ public class MachineViewFragment extends Fragment {
 
     private void initView(View view) {
 
-
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
         khadNumber = (TextView)view.findViewById(R.id.txt_machine_number);
         khadName = (TextView)view.findViewById(R.id.txt_machine_khad);
         khadCompany = (TextView)view.findViewById(R.id.txt_machine_company);
@@ -132,7 +120,8 @@ public class MachineViewFragment extends Fragment {
     }
 
     public void Editable() {
-
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
         ekhadNumber.setEnabled(true);
         ekhadName.setEnabled(true);
         ekhadCompany.setEnabled(true);
@@ -235,8 +224,16 @@ public class MachineViewFragment extends Fragment {
         ekhadExpense.setText("");
         ekhadDate.setText("");
 
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
+        v.setVisibility(View.GONE);
 
-
+        khadNumber.setVisibility(View.GONE);
+        khadName.setVisibility(View.GONE);
+        khadCompany.setVisibility(View.GONE);
+        khadQuantity.setVisibility(View.GONE);
+        khadExpense.setVisibility(View.GONE);
+        khadDate.setVisibility(View.GONE);
 
     }
 

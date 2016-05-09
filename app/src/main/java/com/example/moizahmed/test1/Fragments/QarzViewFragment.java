@@ -15,7 +15,8 @@ import android.widget.Toast;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelLoan;
-import com.example.moizahmed.test1.Screens.R;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 5/1/2016.
@@ -29,6 +30,7 @@ public class QarzViewFragment extends Fragment {
     private TextView date;
     Button save;
 
+    FloatingActionsMenu v ;
     EditText zname;
     EditText zland;
     EditText zamount;
@@ -52,6 +54,7 @@ public class QarzViewFragment extends Fragment {
     }
 
     private void initView(View view) {
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
 
         name = (TextView)view.findViewById(R.id.txt_loan_name);
         land = (TextView) view.findViewById(R.id.txt_loan_land);
@@ -93,11 +96,13 @@ public class QarzViewFragment extends Fragment {
     }
 
     public void Editable() {
-
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
         zname.setEnabled(true);
         zland.setEnabled(true);
         zamount.setEnabled(true);
         zdate.setEnabled(true);
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
 
         zname.setFocusableInTouchMode(true);
         zland.setFocusableInTouchMode(true);
@@ -177,6 +182,14 @@ public class QarzViewFragment extends Fragment {
         zland.setText("");
         zamount.setText("");
         zdate.setText("");
+
+        v.collapse();
+        v.setVisibility(View.GONE);
+
+        name.setVisibility(View.GONE);
+        land.setVisibility(View.GONE);
+        amount.setVisibility(View.GONE);
+        date.setVisibility(View.GONE);
 
     }
 

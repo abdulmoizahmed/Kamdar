@@ -16,6 +16,9 @@ import android.widget.Toast;
 import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Fragments.HariViewFragment;
 import com.example.moizahmed.test1.Model.ModelFarmer;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 4/30/2016.
@@ -35,8 +38,8 @@ public class ViewHari extends Activity {
     String Experience;
     String landNumber;
     String date;
-    ImageButton edit;
-    ImageButton delete;
+    FloatingActionButton edit;
+    FloatingActionButton delete;
     HariViewFragment detailsFragment;
 
     @Override
@@ -48,8 +51,8 @@ public class ViewHari extends Activity {
     }
 
     private void initView() {
-        edit = (ImageButton)findViewById(R.id.editBtn);
-        delete = (ImageButton)findViewById(R.id.deleteBtn);
+        edit = (FloatingActionButton) findViewById(R.id.editBtn);
+        delete = (FloatingActionButton) findViewById(R.id.deleteBtn);
         detailsFragment = (HariViewFragment) getFragmentManager().findFragmentById(R.id.FragId);
 
     }
@@ -84,8 +87,8 @@ public class ViewHari extends Activity {
                 gettingValues();
                 Toast.makeText(getApplicationContext(),itemValue,Toast.LENGTH_SHORT).show();
                 detailsFragment.settingValues(CNIC,landNumber,CropName,name,salary,Address,Phone,Conditions,Contract,Experience,date);
-                edit.setVisibility(View.VISIBLE);
-                delete.setVisibility(View.VISIBLE);
+                FloatingActionsMenu menu = (FloatingActionsMenu)findViewById(R.id.menu);
+                menu.setVisibility(View.VISIBLE);
 
                 listDialog.dismiss();
 

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="rtl"
+    android:background="@color/intro_bg_color_2">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_height="wrap_content"
+        android:paddingTop="56dp"
+        android:layoutDirection="rtl"
+        android:focusableInTouchMode="true"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+        <ImageView android:src="@drawable/qarz"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="یہ قرض اندراج اسکرین  ہے "
+            android:id="@+id/tv_inpLoan_heading"
+            android:layout_gravity="center_horizontal" />
+
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin_loan_name"
+
+        android:entries="@array/haari"
+
+        app:ms_arrowColor="@color/black"
+        app:ms_floatingLabelColor="@color/black"
+        app:ms_floatingLabelText=""
+        app:ms_highlightColor="@color/black"
+        app:ms_hint="@string/dialog_enter_contract"
+
+        app:ms_hintColor="@color/colorPrimaryDark"
+        app:ms_multiline="true"
+        app:ms_alignLabels="true">
+
+
+
+
+    </fr.ganfra.materialspinner.MaterialSpinner>
+
+
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spin_loan_landNumber"
+
+        app:ms_arrowColor="@color/black"
+        app:ms_floatingLabelColor="@color/black"
+        app:ms_floatingLabelText=""
+        app:ms_highlightColor="@color/black"
+        app:ms_hint="@string/dialog_enter_contract"
+
+        app:ms_hintColor="@color/colorPrimaryDark"
+        app:ms_multiline="true"
+        app:ms_alignLabels="true"
+            />
+
+
+
+    <com.iangclifton.android.floatlabel.FloatLabel
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:id="@+id/et_loan_amount"
+         />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_layout"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_loan_date"
+                android:textSize="20sp"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginRight="10dp"
+                android:id="@+id/et_loan_date"
+                android:text="@string/dialog_title"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="100"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:layout_weight="50"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+                android:layout_height="wrap_content"
+                android:text="جمع کردو"
+                android:id="@+id/btn_submit"
+                />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -2,13 +2,12 @@ package com.example.moizahmed.test1.Screens;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,28 +18,36 @@ import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelLoan;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.iangclifton.android.floatlabel.FloatLabel;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import java.text.NumberFormat;
+import java.util.Calendar;
+
+import fr.ganfra.materialspinner.MaterialSpinner;
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015
  */
-public class new_qarz extends Activity {
+public class roz_qarz extends Activity  implements DatePickerDialog.OnDateSetListener  {
     String[] labels;
     int lang;
 
     private EditText v1;
     private EditText v2;
     private EditText v3;
-    private EditText v4;
+    private TextView v4;
 
-    private TextView CNIC;
-    private TextView landNumber;
-    private TextView amount;
+    private FloatLabel CNIC;
+    private FloatLabel landNumber;
+    private FloatLabel amount;
     private TextView date;
 
-    Spinner fname;
-    Spinner land;
+    MaterialSpinner fname;
+    MaterialSpinner land;
 
-    String cnic = "";
+    String current = "";
     String landNo = "";
 
     Cursor c;
@@ -53,29 +60,29 @@ public class new_qarz extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.input_qarz);
+        setContentView(R.layout.roz_qarz);
         setLanguage();
 
 
 
         initUI();
-        spinValues();
+        setAdapters();
         setLabels();
         startListeners();
 
     }
 
-    public void spinValues(){
+    public void setAdapters(){
 
         GetAdapters adapters = new GetAdapters(this);
         fname.setAdapter(adapters.getFarmerArray());
         land.setAdapter(adapters.getLandArray());
 
-
     }
     private void startListeners() {
         submit.setOnClickListener(new LoanButtonListner());
-        refresh.setOnClickListener(new LoanButtonListner());
+        v4.setOnClickListener(new LoanButtonListner());
+        v3.addTextChangedListener(new mWatcher());
 
     }
     public void setLanguage() {
@@ -90,30 +97,29 @@ public class new_qarz extends Activity {
     }
 
     private void setLabels() {
-        CNIC.setText(labels[0]);
-        landNumber.setText(labels[1]);
-        amount.setText(labels[2]);
+        fname.setFloatingLabelText(labels[0]);
+        land.setFloatingLabelText(labels[1]);
+        amount.setLabel(labels[2]);
         date.setText(labels[3]);
     }
 
     private void initUI() {
-        CNIC= (TextView)findViewById(R.id.tv_loan_CNIC);
-        landNumber = (TextView) findViewById(R.id.tv_loan_landNumber);
-        amount = (TextView) findViewById(R.id.tv_loan_amount);
+
+
         date = (TextView) findViewById(R.id.tv_loan_date);
 
 
-        fname = (Spinner) findViewById(R.id.spin_loan_name);
-        land = (Spinner) findViewById(R.id.spin_loan_landNumber);
-
-        v3= (EditText) findViewById(R.id.et_loan_amount);
-        v4= (EditText) findViewById(R.id.et_loan_date);
+        fname = (MaterialSpinner) findViewById(R.id.spin_loan_name);
+        land = (MaterialSpinner) findViewById(R.id.spin_loan_landNumber);
+        amount =  (FloatLabel) findViewById(R.id.et_loan_amount);
+        v4= (TextView) findViewById(R.id.et_loan_date);
+        v3= amount.getEditText();
 
 
 
 
         submit = (Button) findViewById(R.id.btn_submit);
-        refresh =(Button) findViewById(R.id.refresh);
+
 
     }
     private void setLoanObject() {
@@ -129,7 +135,7 @@ public class new_qarz extends Activity {
 
     }
     private void showDialogMessage() {
-        AlertDialog alertDialog = new AlertDialog.Builder(new_qarz.this).create();
+        AlertDialog alertDialog = new AlertDialog.Builder(roz_qarz.this).create();
         alertDialog.setMessage("شکریہ! اندراج ہوگیا ہے۔");
         alertDialog.setIcon(R.drawable.logo1);
         alertDialog.show();
@@ -153,6 +159,12 @@ public class new_qarz extends Activity {
 
 
     }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        v4.setText("" + dayOfMonth + "/" + monthOfYear + "/" + year);
+    }
+
     private class LoanButtonListner implements View.OnClickListener{
         @Override
         public void onClick(View v) {
@@ -165,15 +177,57 @@ public class new_qarz extends Activity {
                         showDialogMessage();
                     }
                     break;
-                case R.id.refresh:
-                    Intent qarz = new Intent(getApplicationContext(), com.example.moizahmed.test1.Screens.new_qarz.class);
-                    startActivity(qarz);
-                    finish();
+                case R.id.et_loan_date:
+                    Calendar now = Calendar.getInstance();
+                    DatePickerDialog dpd = DatePickerDialog.newInstance(
+                            roz_qarz.this,
+                            now.get(Calendar.YEAR),
+                            now.get(Calendar.MONTH),
+                            now.get(Calendar.DAY_OF_MONTH)
+                    );
+                    dpd.show(getFragmentManager(), "Datepickerdialog");
                     break;
+
 
             }
         }
     }
 
 
+    private class mWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (!s.toString().equals(current)) {
+                v3.removeTextChangedListener(this);
+
+                String replaceable = String.format("[%s,.\\s]", NumberFormat.getCurrencyInstance().getCurrency().getSymbol());
+                String cleanString = s.toString().replaceAll(replaceable, "");
+
+                double parsed;
+                try {
+                    parsed = Double.parseDouble(cleanString);
+                } catch (NumberFormatException e) {
+                    parsed = 0.00;
+                }
+                NumberFormat formatter = NumberFormat.getCurrencyInstance();
+                formatter.setMaximumFractionDigits(0);
+                String formatted = formatter.format((parsed));
+
+                current = formatted;
+                v3.setText(formatted);
+                v3.setSelection(formatted.length());
+                v3.addTextChangedListener(this);
+            }
+        }
+    }
 }

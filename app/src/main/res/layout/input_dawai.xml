@@ -5,77 +5,113 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layoutDirection="rtl"
-
-    android:fitsSystemWindows="true">
-
-    <LinearLayout
+    android:fitsSystemWindows="true"
+    android:background="@color/intro_bg_color_2"
+    >
+   <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layoutDirection="rtl"
+        android:gravity="right"
+        android:textSize="18sp"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:paddingTop="56dp"
+       android:focusableInTouchMode="true"
+
+       android:paddingTop="56dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/logo1"
+        <ImageView android:src="@drawable/dawai_input"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
             android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal" />
 
-        <!-- Name Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
 
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:hint="" />
-        </android.support.design.widget.TextInputLayout>
 
-        <!--  Email Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="دوائی کمپنی" />
-        </android.support.design.widget.TextInputLayout>
 
-        <!-- Password Label -->
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:hint="دوائی قیمت"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <!-- Signup Button -->
-        <android.support.v7.widget.AppCompatButton
-
-            android:id="@+id/btn_signup"
+        <com.iangclifton.android.floatlabel.FloatLabel
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:id="@+id/et_medicine_ID"
+            />
+
+
+
+        <com.iangclifton.android.floatlabel.FloatLabel
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:id="@+id/et_medicine_name"
+            />
+
+        <com.iangclifton.android.floatlabel.FloatLabel
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:id="@+id/et_medicine_company"
+            />
+
+        <com.iangclifton.android.floatlabel.FloatLabel
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_medicine_expense"
+            android:inputType="number"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:id="@+id/date_layout"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_date"
+                android:textSize="20sp"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginRight="10dp"
+                android:id="@+id/et_medicine_date"
+                android:text="@string/dialog_title"
+
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="100"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
-            android:padding="12dp"
-            android:text="جمع کریں"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+                android:layout_weight="50"
+                android:layout_height="wrap_content"
+                android:text="جمع کردو"
+                android:id="@+id/btn_submit"
+                />
 
 
 
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

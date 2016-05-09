@@ -15,7 +15,8 @@ import android.widget.Toast;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelLand;
-import com.example.moizahmed.test1.Screens.R;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 4/28/2016.
@@ -28,6 +29,7 @@ public class ZameenViewFragment extends Fragment {
     private TextView dimension;
     private TextView place;
     Button save;
+    FloatingActionsMenu v;
 
     EditText znumber;
     EditText zowner;
@@ -52,6 +54,8 @@ public class ZameenViewFragment extends Fragment {
     }
 
     private void initView(View view) {
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+
 
         number= (TextView)view.findViewById(R.id.view_zlandno);
         owner = (TextView) view.findViewById(R.id.view_zone);
@@ -93,6 +97,8 @@ public class ZameenViewFragment extends Fragment {
     }
 
     public void Editable() {
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
 
         znumber.setEnabled(true);
         zowner.setEnabled(true);
@@ -177,6 +183,14 @@ public class ZameenViewFragment extends Fragment {
         zowner.setText("");
         zdimension.setText("");
         zlocation.setText("");
+
+        v.collapse();
+        v.setVisibility(View.GONE);
+
+        number.setVisibility(View.GONE);
+        owner.setVisibility(View.GONE);
+        dimension.setVisibility(View.GONE);
+        place.setVisibility(View.GONE);
 
     }
 

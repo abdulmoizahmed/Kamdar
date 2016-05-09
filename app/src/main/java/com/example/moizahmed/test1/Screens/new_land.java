@@ -15,6 +15,7 @@ import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelLand;
 import com.iangclifton.android.floatlabel.FloatLabel;
+import com.example.moizahmed.test1.R;
 
 /**
  * Created by Moiz Ahmed on 11/16/2015.

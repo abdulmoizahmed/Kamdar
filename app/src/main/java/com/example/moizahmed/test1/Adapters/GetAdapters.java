@@ -73,6 +73,20 @@ public class GetAdapters {
     }
 
 
+    public ArrayAdapter<String> getMachineNo() {
+        DataBaseHelper db = new DataBaseHelper(context);
+        c = db.retrieveMachineName();i=0;
+        this.mSpinnerArray = new String[c.getCount()];
+        while(c.moveToNext()){
+            mSpinnerArray[i++] = c.getString(0);}
+        c.close();
+        adapter = new ArrayAdapter<String>(context, spinnerResource,mSpinnerArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return adapter;
+
+
+    }
+
 
     public ArrayAdapter<String> getFasalArrayList(){
         DataBaseHelper db = new DataBaseHelper(context);
@@ -138,6 +152,16 @@ public class GetAdapters {
         return adapter;
     }
 
+    public ArrayAdapter<String> getSeedArray(){
+        DataBaseHelper db = new DataBaseHelper(context);
+        c = db.retrieveSeedName();i=0;
+        this.mSpinnerArray = new String[c.getCount()];
+        while(c.moveToNext()){mSpinnerArray[i++] = c.getString(0);}
+        c.close();
+        adapter = new ArrayAdapter<String>(context,spinnerResource,mSpinnerArray);
+        return adapter;
+    }
+
     public ArrayAdapter<String> getSeedArrayList(){
         DataBaseHelper db = new DataBaseHelper(context);
         c = db.retrieveSeedName();i=0;
@@ -168,6 +192,8 @@ public class GetAdapters {
         adapter = new ArrayAdapter<String>(context, listResource,mSpinnerArray);
         return adapter;
     }
+
+
 
     /*
     * Remaining Adapters code

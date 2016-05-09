@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:paddingTop="56dp"
-    android:paddingBottom="56dp"
-    android:background="@color/intro_bg_color_2"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:layout_height="match_parent">
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:paddingTop="56dp"
+        android:paddingBottom="56dp"
+        android:background="@color/intro_bg_color_2"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
     >
+
+    <ImageView android:src="@drawable/info_fasl"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal" />
+
+
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -21,7 +33,7 @@
         android:orientation="horizontal">
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="70"
         android:background="@drawable/button_style"
@@ -29,25 +41,6 @@
         android:onClick="selectFasal"
         />
 
-
-    <ImageButton
-        android:id="@+id/editBtn"
-        android:layout_width="15dp"
-        android:layout_height="40dp"
-        android:layout_weight="15"
-        android:visibility="invisible"
-        android:layout_gravity="left"
-        android:src="@drawable/pencila"
-        android:background="#0000" />
-
-        <ImageButton
-            android:id="@+id/deleteBtn"
-            android:layout_width="15dp"
-            android:layout_height="40dp"
-            android:visibility="invisible"
-            android:layout_weight="15"
-            android:src="@drawable/delete"
-            android:background="#0000" />
 
 
     </LinearLayout>
@@ -64,7 +57,44 @@
 
     ></fragment>
 
-
-
 </LinearLayout>
-</ScrollView>
+
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|left"
+        android:visibility="invisible"
+
+        android:id="@+id/menu"
+        >
+
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/editBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:src="@drawable/pencil"
+            android:background="#069ca3"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete"
+            android:background="#069ca3"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            />
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+
+
+    </android.support.design.widget.CoordinatorLayout>

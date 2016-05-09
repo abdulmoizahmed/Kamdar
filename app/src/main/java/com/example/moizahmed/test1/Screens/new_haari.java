@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.blackcat.currencyedittext.CurrencyEditText;
 import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
@@ -29,6 +28,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
+import com.example.moizahmed.test1.R;
 
 /**
  * Created by Moiz Ahmed on 11/16/2015.

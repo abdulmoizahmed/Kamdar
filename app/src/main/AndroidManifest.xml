@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.moizahmed.test1.Screens">
+    package="com.example.moizahmed.test1">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
+
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
+        android:allowBackup="true"
+        android:backupAgent="MyBackup"
         android:label="@string/app_name"
         tools:replace="android:theme"
         android:theme="@style/AppTheme.Light"
 
         >
 
-        <activity android:name=".MyIntro"
+        <activity android:name=".Screens.MyIntro"
 
             >
             <intent-filter>
@@ -24,124 +28,130 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Screens.MainActivity"
 
             android:label="@string/app_name" >
         </activity>
 
-        <activity android:name=".Main">
+        <activity android:name=".Screens.Main">
         </activity>
 
-        <activity android:name=".new_dawai">
+        <activity android:name=".Screens.new_dawai">
         </activity>
 
         <activity
-            android:name=".new_haari"
+            android:name=".Screens.new_haari"
             android:label="@string/input_farmer"
             >
         </activity>
 
         <activity
-            android:name=".new_fasl"
+            android:name=".Screens.new_fasl"
             android:label="@string/input_fasal" >
         </activity>
 
         <activity
-            android:name=".new_land"
+            android:name=".Screens.new_land"
             android:label="@string/input_land" >
         </activity>
 
 
         <activity
-            android:name=".new_khad"
+            android:name=".Screens.new_khad"
             android:label="@string/input_fertilizer" >
         </activity>
 
         <activity
-            android:name=".new_machine"
+            android:name=".Screens.new_machine"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".new_qarz">
+            android:name=".Screens.roz_qarz">
         </activity>
         <activity
-            android:name=".new_seed">
+            android:name=".Screens.new_seed">
         </activity>
 
         <activity
-            android:name=".roz_khad"
+            android:name=".Screens.roz_khad"
+            android:theme="@style/AppTheme.Light"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".roz_seed"
+            android:name=".Screens.roz_seed"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".roz_machine"
+            android:name=".Screens.roz_machine"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".roz_pani"
+            android:name=".Screens.roz_pani"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".roz_servey"
+            android:name=".Screens.roz_servey"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".roz_tax"
-            android:label="@string/app_name" >
-        </activity>
-
-
-        <activity
-            android:name=".ViewFasal"
+            android:name=".Screens.roz_tax"
             android:label="@string/app_name" >
         </activity>
 
 
         <activity
-            android:name=".ViewZameen"
-            android:label="@string/app_name" >
-        </activity>
-
-        <activity
-            android:name=".ViewHari"
+            android:name=".Screens.ViewFasal"
             android:label="@string/app_name" >
         </activity>
 
 
         <activity
-            android:name=".ViewKhad"
+            android:name=".Screens.ViewZameen"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name=".Screens.ViewHari"
             android:label="@string/app_name" >
         </activity>
 
 
         <activity
-            android:name=".ViewMachine"
+            android:name=".Screens.ViewKhad"
+            android:label="@string/app_name" >
+        </activity>
+
+
+        <activity
+            android:name=".Screens.ViewMachine"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".ViewSeed"
+            android:name=".Screens.ViewSeed"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".ViewSurvey"
+            android:name=".Screens.ViewSurvey"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".ViewQarz"
+            android:name=".Screens.ViewQarz"
             android:label="@string/app_name" >
         </activity>
+
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="AEdPqrEAAAAIqK5A00CPAEjPs6W-oXdqjWKAev-0E2rKPhkn3A" />
+
     </application>
 
 </manifest>

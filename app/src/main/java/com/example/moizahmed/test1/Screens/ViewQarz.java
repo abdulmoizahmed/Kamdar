@@ -15,6 +15,9 @@ import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Fragments.QarzViewFragment;
 import com.example.moizahmed.test1.Model.ModelLand;
 import com.example.moizahmed.test1.Model.ModelLoan;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 5/1/2016.
@@ -24,8 +27,8 @@ public class ViewQarz extends Activity {
     ListView mListView;
     String  itemValue;
     String number,owner,dimension,location;
-    ImageButton edit;
-    ImageButton delete;
+    FloatingActionButton edit;
+    FloatingActionButton delete;
     QarzViewFragment detailsFragment;
 
 
@@ -45,8 +48,8 @@ public class ViewQarz extends Activity {
 
     private void initView() {
 
-        edit = (ImageButton)findViewById(R.id.editBtn);
-        delete = (ImageButton)findViewById(R.id.deleteBtn);
+        edit = (FloatingActionButton) findViewById(R.id.editBtn);
+        delete = (FloatingActionButton) findViewById(R.id.deleteBtn);
         detailsFragment = (QarzViewFragment) getFragmentManager().findFragmentById(R.id.FragId);
 
     }
@@ -81,8 +84,8 @@ public class ViewQarz extends Activity {
                 itemValue = (String) mListView.getItemAtPosition(position);
                 gettingValues();
                 detailsFragment.settingValues(number,owner,dimension,location);
-                edit.setVisibility(View.VISIBLE);
-                delete.setVisibility(View.VISIBLE);
+                FloatingActionsMenu menu = (FloatingActionsMenu)findViewById(R.id.menu);
+                menu.setVisibility(View.VISIBLE);
                 listDialog.dismiss();
             }
         });

@@ -2,6 +2,7 @@ package com.example.moizahmed.test1.Screens;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.backup.BackupManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -10,13 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.moizahmed.test1.R;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelFasl;
 import com.iangclifton.android.floatlabel.FloatLabel;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import java.io.File;
 import java.util.Calendar;
 
 /**
@@ -172,6 +174,11 @@ public class new_fasl extends Activity implements DatePickerDialog.OnDateSetList
         else{
             setFaslObject();
             showDialogMessage();
+            BackupManager back = new BackupManager(this);
+            back.dataChanged();
+
+            File path = getDatabasePath("Khaatah.db");
+            Toast.makeText(getApplicationContext(),path.toString(),Toast.LENGTH_LONG).show();
 
         }
 

@@ -219,8 +219,26 @@
         <item>ھاري اَٽڪڻ نمبر</item>
         <item>    ہاری اجرت</item>
         <item>شرائط</item>
+        <item>مائدہ</item>
         <item>سی-ای-این-سی</item>
         <item>تجربو(سال)</item>
+    </string-array>>
+
+    <string-array name="urdu_inputDawai">
+        <item>ٖدوائی ںمبر</item>
+        <item>ٖدوائی کا نام</item>
+        <item>ٖدوائی کمپنی کا نام </item>
+        <item>اخراجات</item>
+        <item>تاریخ</item>
+    </string-array>>
+
+
+    <string-array name="sindhi_inputDawai">
+        <item>اوشد ںمبر</item>
+        <item> اوشد جو نالو</item>
+        <item>اوشد ڪمپني جو نالو</item>
+        <item>خرچڻ</item>
+        <item>تاريخ وجھڻ</item>
     </string-array>>
 
     <string-array name="urdu_inputmachine">

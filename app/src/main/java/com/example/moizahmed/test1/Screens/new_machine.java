@@ -22,7 +22,7 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.text.NumberFormat;
 import java.util.Calendar;
-
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
@@ -197,7 +197,7 @@ public class new_machine extends Activity  implements DatePickerDialog.OnDateSet
             v4.setError(error);
             v4.requestFocus();
         }
-        else if(v5.getText().toString().isEmpty())
+        else if(v5.getText().toString().equals(selectError))
         {
             v5.setError(error);
             v5.requestFocus();

@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
@@ -16,25 +18,35 @@ import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelIssueFertilizer;
+import com.iangclifton.android.floatlabel.FloatLabel;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import java.text.NumberFormat;
+import java.util.Calendar;
+
+import fr.ganfra.materialspinner.MaterialSpinner;
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
-public class roz_khad extends Activity {
+public class roz_khad extends Activity  implements DatePickerDialog.OnDateSetListener {
     private String[] labels;
     private int lang;
     private TextView number;
     private  TextView owner;
     private  TextView dimension;
     private TextView place;
-    private  TextView expense1;
+
     private  TextView date1;
-    private Spinner khadID;
-    private Spinner landno;
-    private Spinner company;
-    private EditText quantity;
-    private EditText date;
-    private EditText expense;
+    private MaterialSpinner khadID;
+    private MaterialSpinner landno;
+    private MaterialSpinner company;
+    private FloatLabel quantity;
+    private TextView date;
+    private FloatLabel expense;
+    String current;
+
+    EditText quantity1,expense1;
  //   public ModelKhad modelKhad;
 
 
@@ -52,18 +64,6 @@ public class roz_khad extends Activity {
 
 
         Button refresh,submit;
-        refresh =(Button) findViewById(R.id.refresh);
-        refresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent menu = new Intent("roz_khad");
-                menu.putExtra("language_id",lang);
-                startActivity(menu);
-                finish();
-
-
-            }
-        });
 
 
         submit=(Button) findViewById(R.id.btn_submit);
@@ -74,6 +74,60 @@ public class roz_khad extends Activity {
                 setKhadObject();
                 showMessage();
 
+            }
+        });
+
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Calendar now = Calendar.getInstance();
+                DatePickerDialog dpd = DatePickerDialog.newInstance(
+                        roz_khad.this,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                dpd.show(getFragmentManager(), "Datepickerdialog");
+
+            }
+        });
+
+        expense1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                if (!s.toString().equals(current)) {
+                    expense1.removeTextChangedListener(this);
+
+                    String replaceable = String.format("[%s,.\\s]", NumberFormat.getCurrencyInstance().getCurrency().getSymbol());
+                    String cleanString = s.toString().replaceAll(replaceable, "");
+
+                    double parsed;
+                    try {
+                        parsed = Double.parseDouble(cleanString);
+                    } catch (NumberFormatException e) {
+                        parsed = 0.00;
+                    }
+                    NumberFormat formatter = NumberFormat.getCurrencyInstance();
+                    formatter.setMaximumFractionDigits(0);
+                    String formatted = formatter.format((parsed));
+
+                    current = formatted;
+                    expense1.setText(formatted);
+                    expense1.setSelection(formatted.length());
+                    expense1.addTextChangedListener(this);
+                }
             }
         });
 
@@ -89,16 +143,7 @@ public class roz_khad extends Activity {
 
 
 
-    private void setLabels() {
 
-        number.setText(labels[0]);
-        dimension.setText(labels[2]);
-        owner.setText(labels[1]);
-        place.setText(labels[3]);
-        expense1.setText(labels[4]);
-        date1.setText(labels[5]);
-
-    }
 
     private void showMessage() {
         AlertDialog alertDialog = new AlertDialog.Builder(roz_khad.this).create();
@@ -112,38 +157,42 @@ public class roz_khad extends Activity {
         modelIssueFertilizer.setID(khadID.getSelectedItem().toString());
         modelIssueFertilizer.setLandNumber(landno.getSelectedItem().toString());
         modelIssueFertilizer.setCompany(company.getSelectedItem().toString());
-        modelIssueFertilizer.setQuantity(quantity.getText().toString());
-        modelIssueFertilizer.setExpense(expense.getText().toString());
+        modelIssueFertilizer.setQuantity(quantity1.getText().toString());
+        modelIssueFertilizer.setExpense(expense1.getText().toString());
         modelIssueFertilizer.setDate(date.getText().toString());
         DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertIssueFertilizerToDb(modelIssueFertilizer);
     }
 
+    private void setLabels() {
 
+        khadID.setFloatingLabelText(labels[0]);
+        company.setFloatingLabelText(labels[2]);
+        landno.setFloatingLabelText(labels[1]);
+        quantity.setLabel(labels[3]);
+        expense.setLabel(labels[4]);
+        date1.setText(labels[5]);
+
+    }
 
 
     private void initUI() {
-        number= (TextView)findViewById(R.id.fertilizer_id);
-        owner = (TextView) findViewById(R.id.landNum);
-         dimension = (TextView) findViewById(R.id.company);
-         place = (TextView) findViewById(R.id.quantity);
-         expense1 = (TextView) findViewById(R.id.tv_fert_expense);
+
+
          date1 = (TextView) findViewById(R.id.tv_fert_date);
 
-//        ID= (TextView)findViewById(R.id.fertilizer_id);
-//        landnumber= (TextView)findViewById(R.id.landNum);
-//        company = (TextView) findViewById(R.id.company);
-//        quantity = (TextView) findViewById(R.id.quantity);
-//        expense = (TextView) findViewById(R.id.tv_fert_expense);
-//        date = (TextView) findViewById(R.id.tv_fert_date);
+         khadID= (MaterialSpinner)findViewById(R.id.spin_ID);
+         landno= (MaterialSpinner)findViewById(R.id.spin_landNum);
+         company= (MaterialSpinner)findViewById(R.id.spin_company);
 
-        khadID= (Spinner)findViewById(R.id.spin_ID);
-         landno= (Spinner)findViewById(R.id.spin_landNum);
-         company= (Spinner)findViewById(R.id.spin_company);
-         quantity= (EditText) findViewById(R.id.et_fert_quantity);
-         expense = (EditText) findViewById(R.id.et_fert_expense);
-         date= (EditText) findViewById(R.id.et_fert_date);
+
+         quantity= (FloatLabel) findViewById(R.id.et_fert_quantity);
+         expense = (FloatLabel) findViewById(R.id.et_fert_expense);
+         date= (TextView) findViewById(R.id.et_fert_date);
         //
+
+        quantity1 = quantity.getEditText();
+        expense1 = expense.getEditText();
 
 
     }
@@ -155,5 +204,10 @@ public class roz_khad extends Activity {
             labels = getResources().getStringArray(R.array.sindhi_rozkhad);
         }
 
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        date.setText("" + dayOfMonth + "/" + monthOfYear + "/" + year);
     }
 }

@@ -10,6 +10,10 @@ public class ModelMedicine {
     String Expense;
     String Date;
 
+
+    public void setName(String name) {
+        Name = name;
+    }
     public String getName() {
         return Name;
     }

@@ -18,6 +18,9 @@ import com.example.moizahmed.test1.Fragments.ZameenViewFragment;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelFasl;
 import com.example.moizahmed.test1.Model.ModelLand;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 4/28/2016.
@@ -27,8 +30,8 @@ public class ViewZameen extends Activity {
     ListView mListView;
     String  itemValue;
     String number,owner,dimension,location;
-    ImageButton edit;
-    ImageButton delete;
+    FloatingActionButton edit;
+    FloatingActionButton delete;
     ZameenViewFragment detailsFragment;
 
 
@@ -48,8 +51,8 @@ public class ViewZameen extends Activity {
 
     private void initView() {
 
-        edit = (ImageButton)findViewById(R.id.editBtn);
-        delete = (ImageButton)findViewById(R.id.deleteBtn);
+        edit = (FloatingActionButton) findViewById(R.id.editBtn);
+        delete = (FloatingActionButton) findViewById(R.id.deleteBtn);
         detailsFragment = (ZameenViewFragment) getFragmentManager().findFragmentById(R.id.FragId);
 
     }
@@ -84,8 +87,8 @@ public class ViewZameen extends Activity {
                 itemValue = (String) mListView.getItemAtPosition(position);
                 gettingValues();
                 detailsFragment.settingValues(number,owner,dimension,location);
-                edit.setVisibility(View.VISIBLE);
-                delete.setVisibility(View.VISIBLE);
+                FloatingActionsMenu menu = (FloatingActionsMenu)findViewById(R.id.menu);
+                menu.setVisibility(View.VISIBLE);
                 listDialog.dismiss();
             }
         });

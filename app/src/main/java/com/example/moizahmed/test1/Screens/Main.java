@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import com.example.moizahmed.test1.R;
 
 import com.example.moizahmed.test1.Model.Language;
-import com.example.moizahmed.test1.Screens.R;
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
 
 public class Main extends AppCompatActivity {
@@ -277,7 +277,7 @@ private String[] mainLabels;
                     startActivity(menu);
                     break;
                 case R.id.btn_newqarz:
-                    menu = new Intent(Main.this,new_qarz.class);
+                    menu = new Intent(Main.this,roz_qarz.class);
                     startActivity(menu);
                     break;
 

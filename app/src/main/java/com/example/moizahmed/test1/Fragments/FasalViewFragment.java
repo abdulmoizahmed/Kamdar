@@ -19,7 +19,9 @@ import android.widget.Toast;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelFasl;
-import com.example.moizahmed.test1.Screens.R;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 4/26/2016.
@@ -32,7 +34,7 @@ public class FasalViewFragment extends Fragment {
     TextView owner;
     TextView dimension;
 
-
+FloatingActionsMenu v;
     Button save;
     String modifyReference;
     DataBaseHelper dbObject;
@@ -110,6 +112,10 @@ public class FasalViewFragment extends Fragment {
         fasalYear.setEnabled(true);
         fasalYear.setInputType(InputType.TYPE_DATETIME_VARIATION_DATE);
 
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
+
+
         fasalName.setFocusableInTouchMode(true);
         fasalSeason.setFocusableInTouchMode(true);
         fasalYear.setFocusableInTouchMode(true);
@@ -183,5 +189,12 @@ public class FasalViewFragment extends Fragment {
         fasalSeason.setText("");
         fasalYear.setText("");
 
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
+        v.setVisibility(View.GONE);
+
+        number.setVisibility(View.GONE);
+        owner.setVisibility(View.GONE);
+        dimension.setVisibility(View.GONE);
     }
 }

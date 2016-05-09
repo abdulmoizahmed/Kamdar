@@ -17,7 +17,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     // Database Version
     private static final int DATABASE_VERSION = 1;
     // Database Name
-    private static final String DATABASE_NAME = "Khaatah";
+    private static final String DATABASE_NAME = "Khaatah.db";
 
     private String CREATE_LAND = "CREATE TABLE IF NOT EXISTS Land(landNumber TEXT PRIMARY KEY,landOwner VARCHAR NOT NULL,dimensions VARCHAR,landLoc VARCHAR);";
     private String CREATE_CROP = "CREATE TABLE IF NOT EXISTS Crop(cropName TEXT PRIMARY KEY,season VARCHAR,year VARCHAR);";
@@ -68,6 +68,20 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS Land");
+        db.execSQL("DROP TABLE IF EXISTS Crop");
+        db.execSQL("DROP TABLE IF EXISTS Seeds");
+        db.execSQL("DROP TABLE IF EXISTS IssueSeeds");
+        db.execSQL("DROP TABLE IF EXISTS Fertilizer");
+        db.execSQL("DROP TABLE IF EXISTS IssueFertilizer");
+        db.execSQL("DROP TABLE IF EXISTS Medicine");
+        db.execSQL("DROP TABLE IF EXISTS Farmer");
+        db.execSQL("DROP TABLE IF EXISTS Survey");
+        db.execSQL("DROP TABLE IF EXISTS NewMachines");
+        db.execSQL("DROP TABLE IF EXISTS IssueMachines");
+        db.execSQL("DROP TABLE IF EXISTS Tax");
+        db.execSQL("DROP TABLE IF EXISTS IssueWater");
+        db.execSQL("DROP TABLE IF EXISTS Loan");
 
     }
 
@@ -93,10 +107,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO Land VALUES('" + modelLand.getLandNumber().toString() + "','" + modelLand.getLandOwner().toString() + "','" + modelLand.getDimensions().toString() + "','" + modelLand.getLandLoc().toString() + "')");
     }
 
-    public void insertMedicineToDb(ModelMedicine modelMedicine) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("INSERT INTO Medicine VALUES('" + modelMedicine.getID().toString() + "','" + modelMedicine.getName().toString() + "','" + modelMedicine.getCompany().toString() + "','" + modelMedicine.getExpense().toString() + "','" + modelMedicine.getDate().toString() + "')");
-    }
 
     public void insertMachineToDb(ModelMachine modelMachine) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -114,6 +124,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("INSERT INTO Survey VALUES('" + modelSurvey.getSurveyCode().toString() + "','" + modelSurvey.getCompany().toString() + "','" + modelSurvey.getExpense().toString() + "','" + modelSurvey.getPh().toString() + "','" + modelSurvey.getDate().toString() + "','" + modelSurvey.getLandNumber().toString() + "')");
     }
+
+    public void insertMedicineToDb(ModelMedicine modelMedicine) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO Medicine VALUES('" + modelMedicine.getID().toString() + "','" + modelMedicine.getName().toString() + "','" + modelMedicine.getCompany().toString() + "','" + modelMedicine.getExpense().toString() + "','" + modelMedicine.getDate().toString() + "')");
+    }
+
 
     //CNIC TEXT PRIMARY KEY,
     // landNumber TEXT,
@@ -351,6 +367,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM Crop Where cropName = '"+name+"' ";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+
+    public Cursor retrieveMedicineID(String name)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM Medicine Where ID = '"+name+"' ";
         Cursor c = db.rawQuery(query,null);
         return c;
     }

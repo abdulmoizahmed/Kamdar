@@ -24,6 +24,8 @@ import com.example.moizahmed.test1.Fragments.MachineViewFragment;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelMachine;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import javax.crypto.Mac;
 
@@ -41,8 +43,8 @@ public class ViewMachine extends Activity {
     String expense;
     String date;
 
-    ImageButton edit;
-    ImageButton delete;
+    FloatingActionButton edit;
+    FloatingActionButton delete;
     MachineViewFragment detailsFragment;
 
 
@@ -62,8 +64,8 @@ public class ViewMachine extends Activity {
 
     private void initView() {
 
-        edit = (ImageButton)findViewById(R.id.editBtn);
-        delete = (ImageButton)findViewById(R.id.deleteBtn);
+        edit = (FloatingActionButton) findViewById(R.id.editBtn);
+        delete = (FloatingActionButton) findViewById(R.id.deleteBtn);
         detailsFragment = (MachineViewFragment) getFragmentManager().findFragmentById(R.id.FragId);
 
     }

@@ -9,14 +9,13 @@
     android:layoutDirection="rtl"
     android:background="@color/intro_bg_color_2"
     android:gravity="right"
-    android:focusable="true"
     android:focusableInTouchMode="true"
     android:textSize="18sp"
     android:paddingTop="56dp"
     android:paddingLeft="24dp"
     android:paddingRight="24dp">
 
-    <ImageView android:src="@drawable/logo1"
+    <ImageView android:src="@drawable/fasl_input"
         android:layout_width="wrap_content"
         android:layout_height="72dp"
         android:layout_marginBottom="24dp"

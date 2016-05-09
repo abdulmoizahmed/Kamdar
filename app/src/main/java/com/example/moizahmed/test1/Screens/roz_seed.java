@@ -15,10 +15,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelIssueSeed;
-
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015 and Umair Younas.
  */
@@ -41,14 +42,10 @@ public class roz_seed extends Activity {
 
     String seedno = "";
     String landNo = "";
+    Spinner s1,s2;
 
-    Cursor c;
-    Cursor d;
-
-    SQLiteDatabase db;
 
     private Button submit;
-    private Button refresh;
 
 
     @Override
@@ -58,59 +55,25 @@ public class roz_seed extends Activity {
 
         setLanguage();
 
-        spinValues();
 
         initUI();
+        setAdapters();
+
         setLabels();
         startListeners();
 
 
     }
 
-    public void spinValues(){
+    public void setAdapters(){
 
 
-        db=openOrCreateDatabase("Khaatah", Context.MODE_PRIVATE, null); // open db...
-
-        Cursor c = db.rawQuery("SELECT landNumber FROM Land;",null);
-        Cursor d = db.rawQuery("SELECT ID FROM Seeds;",null);
-
-        final String[] arraySpinner1 = new String[c.getCount()];
-        final String[] arraySpinner2 = new String[d.getCount()];
-
-        final Spinner v1= (Spinner) findViewById(R.id.spin_rozSeed_ID);
-        final Spinner v2= (Spinner) findViewById(R.id.spin_rozSeed_landNum);
-        int i=0;
-        while(c.moveToNext())
-        {
-            arraySpinner1[i++] = c.getString(0);
-        }
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner1);
-        v2.setAdapter(adapter);
+        GetAdapters adapters = new GetAdapters(getApplicationContext());
+        s1.setAdapter(adapters.getLandArray());
 
-        int j=0;
-        while(d.moveToNext())
-        {
-            arraySpinner2[j++] = d.getString(0);
-        }
-
-
-        ArrayAdapter<String> myadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner2);
-        v1.setAdapter(myadapter);
-
-        Spinner mySpinnerLand=(Spinner) findViewById(R.id.spin_rozSeed_landNum);
-        final String landNum = mySpinnerLand.getSelectedItem().toString();
-
-        Spinner mySpinnerID=(Spinner) findViewById(R.id.spin_rozSeed_ID);
-        final String id = mySpinnerID.getSelectedItem().toString();
-
-
-        landNo = landNum;
-        seedno = id;
-
-        db.close();
+        s2.setAdapter(adapters.getSeedArray());
 
     }
 
@@ -125,6 +88,10 @@ public class roz_seed extends Activity {
     }
 
     private void initUI() {
+         s1= (Spinner) findViewById(R.id.spin_rozSeed_ID);
+         s2= (Spinner) findViewById(R.id.spin_rozSeed_landNum);
+
+
         ID= (TextView)findViewById(R.id.textView1);
         landNumber = (TextView) findViewById(R.id.textView8);
         Expense = (TextView) findViewById(R.id.textView9);
@@ -136,20 +103,20 @@ public class roz_seed extends Activity {
         v4= (EditText) findViewById(R.id.editText7);
 
         submit = (Button) findViewById(R.id.btn_submit);
-        refresh =(Button) findViewById(R.id.refresh);
+
 
     }
 
     private void startListeners() {
         submit.setOnClickListener(new IssueSeedButtonListener());
-        refresh.setOnClickListener(new IssueSeedButtonListener());
+
 
     }
     private void setSeedObject() {
         ModelIssueSeed modelIssueSeed = new ModelIssueSeed();
 
-        modelIssueSeed.setID(seedno);
-        modelIssueSeed.setLandNumber(landNo);
+        modelIssueSeed.setID(s1.getSelectedItem().toString());
+        modelIssueSeed.setLandNumber(s2.getSelectedItem().toString());
         modelIssueSeed.setExpense(v1.getText().toString());
         modelIssueSeed.setQuantity(v3.getText().toString());
         modelIssueSeed.setDate(v4.getText().toString());
@@ -203,11 +170,7 @@ public class roz_seed extends Activity {
                         showDialogMessage();
                     }
                     break;
-                case R.id.refresh:
-                    Intent rozSeed = new Intent(getApplicationContext(), com.example.moizahmed.test1.Screens.roz_seed.class);
-                    startActivity(rozSeed);
-                    finish();
-                    break;
+
 
             }
         }

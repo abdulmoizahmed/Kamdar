@@ -16,7 +16,8 @@ import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelMachine;
 import com.example.moizahmed.test1.Model.ModelSeed;
-import com.example.moizahmed.test1.Screens.R;
+import com.example.moizahmed.test1.R;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 /**
  * Created by Moiz Ahmed on 4/30/2016.
@@ -37,6 +38,8 @@ public class SeedViewFragment extends Fragment {
 //    ekhadQuantity
 //    ekhadExpense
 //    ekhadDate
+
+    FloatingActionsMenu v ;
 
 
     TextView khadNumber;
@@ -79,7 +82,7 @@ public class SeedViewFragment extends Fragment {
 
     private void initView(View view) {
 
-
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
         khadNumber = (TextView)view.findViewById(R.id.txt_seed_number);
         khadName = (TextView)view.findViewById(R.id.txt_seed_name);
         khadCompany = (TextView)view.findViewById(R.id.txt_seed_company);
@@ -140,6 +143,8 @@ public class SeedViewFragment extends Fragment {
         ekhadQuantity.setEnabled(true);
         ekhadExpense.setEnabled(true);
         ekhadDate.setEnabled(true);
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
 
         ekhadNumber.setFocusableInTouchMode(true);
         ekhadName.setFocusableInTouchMode(true);
@@ -236,8 +241,16 @@ public class SeedViewFragment extends Fragment {
         ekhadExpense.setText("");
         ekhadDate.setText("");
 
+        v = (FloatingActionsMenu) getActivity().findViewById(R.id.menu);
+        v.collapse();
+        v.setVisibility(View.GONE);
 
-
+        khadNumber.setVisibility(View.GONE);
+        khadName.setVisibility(View.GONE);
+        khadCompany.setVisibility(View.GONE);
+        khadQuantity.setVisibility(View.GONE);
+        khadExpense.setVisibility(View.GONE);
+        khadDate.setVisibility(View.GONE);
 
     }
 

@@ -4,7 +4,11 @@
 
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true">
+
+    android:layoutDirection="rtl"
+    android:background="@color/intro_bg_color_2"
+
+    >
 
 
     <LinearLayout
@@ -18,7 +22,7 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
-        <ImageView android:src="@drawable/logo1"
+        <ImageView android:src="@drawable/pani"
             android:layout_width="wrap_content"
             android:layout_height="72dp"
             android:layout_marginBottom="24dp"
@@ -95,20 +99,15 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:layout_weight="50"
-                android:layout_height="wrap_content"
-                android:text="مزید اضافہ"
-                android:id="@+id/refresh"
-                />
+
 
             <Button
                 android:layout_width="fill_parent"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/white"
+
                 android:layout_weight="50"
                 android:layout_height="wrap_content"
                 android:text="جمع کردو"

@@ -15,11 +15,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 //import com.example.moizahmed.test1.Model.DataBaseStarter;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelIssueWater;
-
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015.
  */
@@ -34,45 +35,29 @@ public class roz_pani extends Activity {
 
     private EditText v1;
     private EditText v2;
+    Spinner v3;
 
 
-    SQLiteDatabase db;
-    Cursor c;
     private Button submit;
-    private Button refresh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roz_pani);
         setLanguage();
-        spinValues();
 
         initUI();
+        setAdapters();
+
         setLabels();
         startListeners();
     }
-    public void spinValues(){
-
-        db=openOrCreateDatabase("Khaatah", Context.MODE_PRIVATE, null); // open db...
-
-        Cursor c = db.rawQuery("SELECT landNumber FROM Land;",null);
-
-        final String[] arraySpinner1 = new String[c.getCount()];
-        final Spinner v3= (Spinner) findViewById(R.id.spinner_pani_landNo);
-
-        int i=0;
-        while(c.moveToNext())
-        {
-            arraySpinner1[i++] = c.getString(0);
-        }
+    public void setAdapters(){
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner1);
-        v3.setAdapter(adapter);
-        Spinner mySpinnerLand=(Spinner) findViewById(R.id.spinner_pani_landNo);
-        final String landNum = mySpinnerLand.getSelectedItem().toString();
-        landNumb = landNum;
-        db.close();
+
+        GetAdapters adapters = new GetAdapters(getApplicationContext());
+        v3.setAdapter(adapters.getLandArray());
+
 
     }
     private void setLabels() {
@@ -85,6 +70,8 @@ public class roz_pani extends Activity {
     }
 
     private void initUI() {
+
+         v3= (Spinner) findViewById(R.id.spinner_pani_landNo);
         landNumber= (TextView)findViewById(R.id.text_llandno);
         duration= (TextView)findViewById(R.id.textView);
         date = (TextView) findViewById(R.id.textView2);
@@ -92,19 +79,17 @@ public class roz_pani extends Activity {
         v2= (EditText) findViewById(R.id.et_pani_date);
 
         submit = (Button) findViewById(R.id.btn_submit);
-        refresh =(Button) findViewById(R.id.refresh);
 
     }
 
     private void startListeners() {
         submit.setOnClickListener(new PaniButtonListener());
-        refresh.setOnClickListener(new PaniButtonListener());
 
     }
     private void setPaniObject() {
         ModelIssueWater modelIssueWater = new ModelIssueWater();
 
-        modelIssueWater.setLandNumber(landNumb);
+        modelIssueWater.setLandNumber(v3.getSelectedItem().toString());
         modelIssueWater.setDuration(v1.getText().toString());
         modelIssueWater.setDate(v2.getText().toString());
 
@@ -151,11 +136,6 @@ public class roz_pani extends Activity {
                         setPaniObject();
                         showDialogMessage();
                     }
-                    break;
-                case R.id.refresh:
-                    Intent pani = new Intent(getApplicationContext(), com.example.moizahmed.test1.Screens.roz_pani.class);
-                    startActivity(pani);
-                    finish();
                     break;
 
             }

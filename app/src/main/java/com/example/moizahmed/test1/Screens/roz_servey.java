@@ -15,10 +15,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moizahmed.test1.Adapters.GetAdapters;
 import com.example.moizahmed.test1.Model.DataBaseHelper;
 import com.example.moizahmed.test1.Model.Language;
 import com.example.moizahmed.test1.Model.ModelSurvey;
-
+import com.example.moizahmed.test1.R;
 /**
  * Created by Moiz Ahmed on 11/16/2015 and Umair Younas.
  */
@@ -38,6 +39,7 @@ public class roz_servey extends Activity {
     private EditText v3;
     private EditText v4;
     private EditText v5;
+    Spinner s1;
     String zameen = "";
 
     SQLiteDatabase db;
@@ -54,38 +56,20 @@ public class roz_servey extends Activity {
 
         setLanguage();
 
-        spinValues();
 
         initUI();
+        setAdapters();
+
         setLabels();
         startListeners();
     }
 
-    public void spinValues(){
-
-        db=openOrCreateDatabase("Khaatah", Context.MODE_PRIVATE, null); // open db...
-
-        Cursor c = db.rawQuery("SELECT landNumber FROM Land;",null);
-
-        final String[] arraySpinner1 = new String[c.getCount()];
-
-        final Spinner v1= (Spinner) findViewById(R.id.spin_survey_landno);
-
-        int i=0;
-        while(c.moveToNext())
-        {
-            arraySpinner1[i++] = c.getString(0);
-        }
+    public void setAdapters(){
 
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner1);
-        v1.setAdapter(adapter);
+        GetAdapters adapters = new GetAdapters(getApplicationContext());
 
-        Spinner mySpinnerLand=(Spinner) findViewById(R.id.spin_survey_landno);
-        final String landNum = mySpinnerLand.getSelectedItem().toString();
-
-        zameen = landNum;
-
+        s1.setAdapter(adapters.getLandArray());
 
     }
     public void setLanguage() {
@@ -114,6 +98,9 @@ public class roz_servey extends Activity {
     }
 
     private void initUI() {
+
+         s1= (Spinner) findViewById(R.id.spin_survey_landno);
+
         surveyCode= (TextView)findViewById(R.id.surveyCode);
         company= (TextView)findViewById(R.id.surveyCompany);
         landNum= (TextView)findViewById(R.id.textView38);
@@ -128,13 +115,13 @@ public class roz_servey extends Activity {
         v5= (EditText) findViewById(R.id.editText27);
 
         submit = (Button) findViewById(R.id.btn_submit);
-        refresh =(Button) findViewById(R.id.refresh);
+
 
     }
 
     private void startListeners() {
         submit.setOnClickListener(new surveyButtonListener());
-        refresh.setOnClickListener(new surveyButtonListener());
+
 
     }
     private void setSurveyObject() {
@@ -146,7 +133,7 @@ public class roz_servey extends Activity {
         modelSurvey.setPh(v4.getText().toString());
         modelSurvey.setDate(v5.getText().toString());
 
-        modelSurvey.setLandNumber(zameen);
+        modelSurvey.setLandNumber(s1.getSelectedItem().toString());
 
         DataBaseHelper dbObject = new DataBaseHelper(getApplicationContext());
         dbObject.insertSurveyToDb(modelSurvey);
@@ -234,11 +221,6 @@ public class roz_servey extends Activity {
                         setSurveyObject();
                         showDialogMessage();
                     }
-                    break;
-                case R.id.refresh:
-                    Intent intent = new Intent(getApplicationContext(), com.example.moizahmed.test1.Screens.roz_servey.class);
-                    startActivity(intent);
-                    finish();
                     break;
 
             }
