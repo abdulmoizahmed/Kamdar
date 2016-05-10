@@ -3,18 +3,24 @@ package com.example.moizahmed.test1.Screens;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.dropbox.sync.android.DbxAccountManager;
 import com.dropbox.sync.android.DbxException;
+import com.dropbox.sync.android.DbxFile;
 import com.dropbox.sync.android.DbxFileSystem;
+import com.dropbox.sync.android.DbxPath;
 import com.example.moizahmed.test1.R;
 
 import com.example.moizahmed.test1.Model.Language;
 import com.github.aakira.expandablelayout.ExpandableRelativeLayout;
+
+import java.io.File;
 
 public class Main extends AppCompatActivity {
 
@@ -71,14 +77,43 @@ private String[] mainLabels;
 
 
 
-
+    private DbxAccountManager mDbxAcctMgr;
+    private DbxFileSystem dbxFs;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-       layout = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout);
+
+        mDbxAcctMgr = DbxAccountManager.getInstance(getApplicationContext(), "f534w4m2pm4ub2p", "pcrvz90yt6c479q");
+        mDbxAcctMgr.startLink((Activity)this,1);
+
+        File data = Environment.getDataDirectory();
+        DbxPath path = new DbxPath("/data/com.example.moizahmed.test1/databases/Khaatah");
+        DbxFile file;
+//        try {
+//            file = dbxFs.open(path);
+//            Log.e("Dropbox-dropboxSync", "Opened Sync File successfully");
+//        } catch (DbxException.NotFound e) {
+//            Log.e("Dropbox-dropboxSync", "File not found? e = " + e);
+//            e.printStackTrace();
+//            Log.e("Dropbox-dropboxSync", "Create a new file");
+//            try {
+//                file = dbxFs.create(path);
+//            } catch (DbxException e1) {
+//                e1.printStackTrace();
+//            }
+//        } catch (DbxException e) {
+//            Log.e("Dropbox-dropboxSync", "Error opening file. e = " + e);
+//            e.printStackTrace();
+//            Toast.makeText(this, "Error opening file for dropbox syncing", Toast.LENGTH_LONG).show();
+//            return;
+//        }
+
+
+
+        layout = (ExpandableRelativeLayout) findViewById(R.id.expandableLayout);
        rozLayout = (ExpandableRelativeLayout) findViewById(R.id.roznamcha_Layout);
        infoLayout = (ExpandableRelativeLayout) findViewById(R.id.malomat_Layout);
        reportLayout= (ExpandableRelativeLayout) findViewById(R.id.report_Layout);
@@ -87,6 +122,32 @@ private String[] mainLabels;
         initUI();
         startListener();
 
+    }
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                try {
+                    dbxFs = DbxFileSystem.forAccount(mDbxAcctMgr.getLinkedAccount());
+                } catch (DbxException.Unauthorized unauthorized) {
+                    unauthorized.printStackTrace();
+
+
+                }
+                // ... Start using Dropbox files.
+                Toast.makeText(getApplicationContext(),"Done",Toast.LENGTH_LONG).show();
+
+            } else {
+                // ... Link failed or was cancelled by the user.
+
+                Toast.makeText(getApplicationContext(),"Not Done",Toast.LENGTH_LONG).show();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private void initUI() {
