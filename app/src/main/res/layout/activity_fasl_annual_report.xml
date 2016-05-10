@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<HorizontalScrollView
+    android:id="@+id/hsv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:fillViewport="true"
+    android:measureAllChildren="false"
+    android:scrollbars="horizontal|vertical"
+    android:background="#1ce2e6"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:id="@+id/Heading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:text="یہ قرض رپورٹ ہے"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                ></TextView>
+        </LinearLayout>
+
+        -->
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:stretchColumns="*"
+            android:background="#1ce2e6"
+            >
+
+
+            <TableRow
+                android:id="@+id/headings"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/col1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_column="0"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+                <TextView
+                    android:id="@+id/col2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_column="0"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+                <TextView
+                    android:id="@+id/col3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_column="1"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/col4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:layout_column="2"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/col5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_column="3"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/col6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:text="TextView"
+                    android:layout_column="4"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/values"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                >
+
+
+                <TextView
+                    android:id="@+id/r2col1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_column="0"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+                <TextView
+                    android:id="@+id/r2col2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_column="0"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+                <TextView
+                    android:id="@+id/r2col3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_column="1"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/r2col4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:layout_column="2"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/r2col5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:layout_column="3"
+                    android:text="TextView"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+                <TextView
+                    android:id="@+id/r2col6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_background"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:text="TextView"
+                    android:layout_column="4"
+                    android:layout_weight="1"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    ></TextView>
+
+
+
+            </TableRow>
+        </TableLayout>
+
+    </RelativeLayout>
+</HorizontalScrollView>

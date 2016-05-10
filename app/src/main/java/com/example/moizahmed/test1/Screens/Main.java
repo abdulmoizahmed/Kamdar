@@ -1,10 +1,16 @@
 package com.example.moizahmed.test1.Screens;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.dropbox.sync.android.DbxAccountManager;
+import com.dropbox.sync.android.DbxException;
+import com.dropbox.sync.android.DbxFileSystem;
 import com.example.moizahmed.test1.R;
 
 import com.example.moizahmed.test1.Model.Language;
@@ -54,6 +60,17 @@ private String[] mainLabels;
 
     private Intent menu;
 
+    //Reports Buttons
+
+    private Button view_qarz_report;
+    private Button view_survey_report;
+    private Button view_land_report;
+    private Button view_expense_report;
+    private Button make_notifications;
+    private Button view_annual_fasl;
+
+
+
 
 
 
@@ -69,6 +86,7 @@ private String[] mainLabels;
         setLanguage();
         initUI();
         startListener();
+
     }
 
     private void initUI() {
@@ -96,6 +114,8 @@ private String[] mainLabels;
         haari=(Button) findViewById(R.id.btn_newhaari);
         seed=(Button) findViewById(R.id.btn_newseed);
         dawai=(Button) findViewById(R.id.btn_newpesticides);
+
+
 
 
 //init button language
@@ -135,6 +155,16 @@ private String[] mainLabels;
         view_survey = (Button)findViewById(R.id.btn_viewservey);
         view_qarz = (Button)findViewById(R.id.btn_viewqarz);
 
+
+        view_qarz_report = (Button) findViewById(R.id.button15);
+        view_survey_report = (Button) findViewById(R.id.btn18);
+        view_land_report = (Button) findViewById(R.id.button13);
+        view_expense_report = (Button) findViewById(R.id.btn16);
+        make_notifications = (Button) findViewById(R.id.button12);
+        view_annual_fasl = (Button) findViewById(R.id.btn17);
+
+
+
     }
 
     private void startListener() {
@@ -167,7 +197,17 @@ private String[] mainLabels;
         view_survey.setOnClickListener(new MainButtonListener());
         view_qarz.setOnClickListener(new MainButtonListener());
 
+
+
+
+        view_qarz_report.setOnClickListener(new MainButtonListener());
+        view_survey_report.setOnClickListener(new MainButtonListener());
+        view_land_report.setOnClickListener(new MainButtonListener());
+        view_expense_report.setOnClickListener(new MainButtonListener());
+        make_notifications.setOnClickListener(new MainButtonListener());
+        view_annual_fasl.setOnClickListener(new MainButtonListener());
     }
+
 
 
     public void OnEntry(View view)
@@ -316,7 +356,30 @@ private String[] mainLabels;
                     startActivity(menu);
                     break;
 
-
+                case R.id.button15:
+                    menu = new Intent(Main.this,QarzReport.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn18:
+                    menu = new Intent(Main.this,SurveyReport.class);
+                    startActivity(menu);
+                    break;
+                case R.id.button13:
+                    menu = new Intent(Main.this,LandReport.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn16:
+                    menu = new Intent(Main.this,ExpenseReport.class);
+                    startActivity(menu);
+                    break;
+                case R.id.button12:
+                    menu = new Intent(Main.this,Notifications.class);
+                    startActivity(menu);
+                    break;
+                case R.id.btn17:
+                    menu = new Intent(Main.this,FaslAnnualReport.class);
+                    startActivity(menu);
+                    break;
 
             }
         }

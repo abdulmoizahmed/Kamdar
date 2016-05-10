@@ -42,7 +42,7 @@ public class roz_servey extends Activity {
     Spinner s1;
     String zameen = "";
 
-    SQLiteDatabase db;
+
 
     Cursor c;
     private Button submit;
@@ -180,15 +180,14 @@ public class roz_servey extends Activity {
 
     }
     public boolean uniqueCheck(){
-        db=openOrCreateDatabase("Khaatah", Context.MODE_PRIVATE, null); // open db...
 
         String ID="";
         ID = v1.getText().toString();
 
         String Query = "SELECT * FROM Survey WHERE surveyCode = '"+ ID + "'";
 
-
-        Cursor c = db.rawQuery(Query,null);
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
+        Cursor c = dataBaseHelper.retrieveSurvyeName();
 
         if(c.getCount() > 0){
             c.close();
@@ -217,7 +216,6 @@ public class roz_servey extends Activity {
 
                     if(empty == true && isUnique == true) {
 
-                        db.close();
                         setSurveyObject();
                         showDialogMessage();
                     }

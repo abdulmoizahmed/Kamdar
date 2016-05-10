@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
 
-        android:orientation="vertical"
+    android:orientation="vertical"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="25dp"
-        android:paddingLeft="24dp"
-        android:paddingBottom="25dp"
-        android:paddingRight="24dp">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="25dp"
+    android:paddingLeft="24dp"
+    android:paddingBottom="25dp"
+    android:paddingRight="24dp">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,13 +18,13 @@
         android:gravity="center"
         android:paddingBottom="20dp"
         />
-        <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="100"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
 
-            android:layout_marginTop="7dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+        android:layout_marginTop="7dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
 
 
 
@@ -34,50 +34,91 @@
             android:background="@drawable/button_style"
             android:layout_marginLeft="10dp"
             android:layout_weight="40"
-            android:text="ہاری رپورٹس"
-        android:id="@+id/button12"
-      />
+            android:text="نوٹیفکیشن "
+            android:id="@+id/button12"
+            />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_style"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="40"
-        android:text="زمین رپورٹ"
-        android:id="@+id/button13"
-         />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="40"
+            android:text="زمین رپورٹ"
+            android:id="@+id/button13"
+            />
 
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:weightSum="100"
-            android:layout_width="fill_parent"
-            android:layout_marginTop="7dp"
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="7dp"
 
-            android:layout_height="wrap_content">
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="40"
+            android:text="سروے رپورٹ"
+            android:id="@+id/btn18"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="40"
+            android:text="قرض رپورٹ"
+            android:id="@+id/button15"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="7dp"
+
+        android:layout_height="wrap_content">
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_style"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="40"
-        android:text="فصل رپورٹس"
-        android:id="@+id/button14"
-        />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="40"
+            android:text="خرچ رپورٹ"
+            android:id="@+id/btn16"
+            />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_style"
-        android:layout_marginLeft="10dp"
-        android:layout_weight="40"
-        android:text="منافہ رپورٹ"
-        android:id="@+id/button15"
-        />
-        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="40"
+            android:text="سالانہ فصل رپورٹ"
+            android:id="@+id/btn17"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="7dp"
+
+        android:layout_height="wrap_content">
+
+
+
 
 
     </LinearLayout>
+
+</LinearLayout>

@@ -451,4 +451,95 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return c;
     }
 
+    //Reports Queries...
+    public Cursor retrieveLoanReport() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT b.landNumber,b.amount,b.date,a.name,a.CNIC FROM Loan b INNER JOIN Farmer a ON a.name = b.name";
+        // String query = "SELECT * FROM Loan";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+
+    public Cursor retrieveSurveyReport(String land) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT * FROM Survey Where date = '"+land+"'";
+        // String query = "SELECT * FROM Survey";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+    public Cursor retrievetaxTotal(String land) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT expense FROM tax Where landNumber = '"+land+"'";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+    public Cursor retrieveSurveyTotal(String land) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT company FROM Survey Where date = '"+land+"'";
+        // String query = "SELECT expense FROM Survey";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+    public Cursor retrieveSeedTotal(String land) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query ="SELECT expense FROM IssueSeeds Where landNumber = '"+land+"'";
+        // String query = "SELECT expense FROM Survey";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+    public Cursor retrieveLoanTotal(String land) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT amount FROM Loan Where landNumber = '"+land+"'";
+        // String query = "SELECT expense FROM Survey";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+    public Cursor retrieveLandReport(String land) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT * FROM Land,Farmer where Land.landNumber = '" +land+ "' AND Farmer.landNumber = '"+land+"'";
+        // String query = "SELECT * FROM Survey";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+    public Cursor retrieveExpenseReportTax(String land,String date1) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query ="SELECT * FROM Tax WHERE landNumber = '" + land + "' AND date BETWEEN '01/02/2015' AND '" + date1 + "'";
+        //  String query = "SELECT * FROM Tax";
+        Cursor c = db.rawQuery(query,null);
+        return c;
+    }
+    public Cursor retrieveExpenseReportSurvey(String land,String date1) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String SurveyQuery = "SELECT * FROM Survey WHERE date ='" +land+ "'AND pH BETWEEN '01/02/2015' AND '" +date1+ "'";
+        //String SurveyQuery = "SELECT * FROM Survey WHERE date ='" +land+ "'";
+        Cursor c = db.rawQuery(SurveyQuery,null);
+        return c;
+    }
+    public Cursor retrieveExpenseReportSeed(String land,String date1) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String seedQuery = "SELECT * FROM IssueSeeds WHERE landNumber ='" +land+ "'AND date BETWEEN '01/02/2015' AND '"+date1 + "'";
+        //String SurveyQuery = "SELECT * FROM Survey WHERE date ='" +land+ "'";
+        Cursor c = db.rawQuery(seedQuery,null);
+        return c;
+    }
+    public Cursor retrieveExpenseReportLoan(String land,String date1) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        //String SurveyQuery = "SELECT * FROM Survey WHERE date ='" +land+ "'";
+        String loanQuery = "SELECT * FROM Loan WHERE landNumber ='" +land+ "'AND date BETWEEN '01/02/2015' AND '" +date1 + "'";
+
+        Cursor c = db.rawQuery(loanQuery,null);
+
+        return c;
+    }
+    public Cursor retrieveAnnualMachine(String crop,String date1) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        //String SurveyQuery = "SELECT * FROM Survey WHERE date ='" +land+ "'";
+        String TaxQuery = "SELECT * FROM IssueMachine WHERE cropName = '" + crop + "' AND date BETWEEN '01/02/2015' AND '" + date1 + "'";
+
+        Cursor c = db.rawQuery(TaxQuery,null);
+
+        return c;
+    }
+
 }

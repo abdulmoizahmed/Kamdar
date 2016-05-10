@@ -63,6 +63,7 @@
     <string name="dialog_input_date">تاریخ منتخب کریں</string>
     <string name="emptyAbove">اوپر دی ہوئی جگہ میں سے کوئی جگہ خالی ہے۔</string>
     <string name="dialog_format_cnic">اس جگہ کا فارمیٹ ٹھیک نہیں ہے۔</string>
+    <string name="app_intro">زمیندار کا ساتھی</string>
 
 
 </resources>

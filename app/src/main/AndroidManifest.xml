@@ -4,20 +4,27 @@
     package="com.example.moizahmed.test1">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
 
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:allowBackup="true"
-        android:backupAgent="MyBackup"
+        android:backupAgent=".MyBackup"
         android:label="@string/app_name"
         tools:replace="android:theme"
         android:theme="@style/AppTheme.Light"
 
         >
 
-        <activity android:name=".Screens.MyIntro"
+
+        <activity android:name=".Screens.Splash"
 
             >
             <intent-filter>
@@ -26,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".Screens.MyIntro">
+              </activity>
 
         <activity
             android:name=".Screens.MainActivity"
@@ -147,6 +158,30 @@
             android:name=".Screens.ViewQarz"
             android:label="@string/app_name" >
         </activity>
+
+        <activity
+            android:name=".Screens.QarzReport"
+            android:label="QarzReport" />
+        <activity
+            android:name=".Screens.SurveyReport"
+            android:label="SurveyReport" />
+        <activity
+            android:name=".Screens.LandReport"
+            android:label="LandReport" />
+        <activity
+            android:name=".Screens.ExpenseReport"
+            android:label="ExpenseReport" />
+        <activity
+            android:name=".Screens.Notifications"
+            android:label="Notifications" />
+
+        <receiver
+            android:name=".Screens.NotificationsReciever"
+            android:process=":remote" />
+
+        <activity
+            android:name=".Screens.FaslAnnualReport"
+            android:label="FaslAnnualReport" />
 
         <meta-data
             android:name="com.google.android.backup.api_key"
